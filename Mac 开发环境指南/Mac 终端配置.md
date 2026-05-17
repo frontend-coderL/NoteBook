@@ -61,7 +61,9 @@ brew install <formula>
 brew install --cask <app>
 ```
 
-* * *
+---
+
+
 
 ## **2 iTerm2 或 Ghostty**
 
@@ -71,12 +73,11 @@ brew install --cask <app>
 
 特点
 
--   功能完整
-    
--   配置丰富
-    
--   生态成熟
-    
+- 功能完整
+
+- 配置丰富
+
+- 生态成熟
 
 安装命令
 
@@ -86,12 +87,11 @@ brew install --cask iterm2
 
 常用快捷键：
 
--   `CMD` + `D`：横向分屏
-    
--   `CMD` + `Shift` + `D`：纵向分屏
-    
--   `CMD` + `W`：关闭当前分屏
-    
+- `CMD` + `D`：横向分屏
+
+- `CMD` + `Shift` + `D`：纵向分屏
+
+- `CMD` + `W`：关闭当前分屏
 
 ### 2.2 **Ghostty**
 
@@ -99,12 +99,11 @@ brew install --cask iterm2
 
 特点
 
--   性能更轻
-    
--   启动速度快
-    
--   界面更现代
-    
+- 性能更轻
+
+- 启动速度快
+
+- 界面更现代
 
 安装命令
 
@@ -131,22 +130,23 @@ ghostty +list-keybinds --default
 # ===== 基础显示 =====
 font-family = "JetBrainsMono Nerd Font"
 font-size = 14
-# 允许字体缺失时自动合成粗体/斜体，防止出现方块或显示异常
-font-synthetic-style = bold,italic,bold-italic
 # 连字优化：在光标经过时暂时断开连字（比如把 != 变回 ! 和 =），方便精准定位修改
 font-shaping-break = cursor
 
-adjust-cell-height = 15%
-# 让 Nerd Font 图标变大一点，视觉上更协调
-adjust-icon-height = 15%
+# 行高
+# adjust-cell-height = 15%
+# 强制 emoji 用 Apple 原生
+font-codepoint-map = "U+1F300-U+1F5FF=Apple Color Emoji"
 
 # 透明度与毛玻璃效果
 background-opacity = 0.85
-background-blur-radius = 30
+background-blur = 15
 
 # 光标样式：bar（条状），也可以设为 block（块状）
 cursor-style = bar
 cursor-opacity = 0.8
+# 光标颜色
+cursor-color = green
 
 # 温润色调主题
 theme = Catppuccin Mocha
@@ -160,30 +160,10 @@ window-theme = auto
 window-padding-x = 10
 window-padding-y = 10
 
-# ===== 颜色主题 (Tokyo Night) =====
-foreground = "#c0caf5"
-background = "#1a1b26"
-
-# 调色板映射（0-15 号色）
-palette = 0=#15161e
-palette = 1=#f7768e
-palette = 2=#9ece6a
-palette = 3=#e0af68
-palette = 4=#7aa2f7
-palette = 5=#bb9af7
-palette = 6=#7dcfff
-palette = 7=#a9b1d6
-palette = 8=#414868
-palette = 9=#f7768e
-palette = 10=#9ece6a
-palette = 11=#e0af68
-palette = 12=#7aa2f7
-palette = 13=#bb9af7
-palette = 14=#7dcfff
-palette = 15=#c0caf5
-
 # ===== 性能与限制 =====
-scrollback-limit = 100000
+scrollback-limit = 800000
+# 滚动行为
+scroll-to-bottom = keystroke,no-output
 
 # ===== macOS 特有优化 =====
 # 将 Option 键映射为 Alt，解决 Zsh/Emacs/Vim 的快捷键冲突
@@ -202,15 +182,18 @@ clipboard-paste-protection = true
 clipboard-paste-bracketed-safe = true
 # 关闭窗口时不弹出确认对话框
 confirm-close-surface = false
+
 # 自动注入 Shell 集成脚本，增强光标和标题的感知
-shell-integration-features = cursor,sudo,title
-# 通知等级。任何任务结束都会提醒
-notify-on-command-finish = always
+shell-integration = detect
+shell-integration-features = cursor,sudo,title,path
+
+# 通知，只有终端不在前台时才通知
+notify-on-command-finish = unfocused
+notify-on-command-finish-after = 10s
 
 # ===== 自定义快捷键 =====
 # 注意：Ghostty 默认已经映射了 cmd+c/v，如果想手动强制覆盖可保留
 keybind = cmd+k=clear_screen
-keybind = cmd+t=new_window
 keybind = cmd+d=new_split:right
 keybind = cmd+shift+d=new_split:down
 
@@ -223,7 +206,9 @@ quick-terminal-autohide = true
 quick-terminal-screen = mouse
 ```
 
-* * *
+---
+
+
 
 ## **3 Oh My Zsh**
 
@@ -247,12 +232,11 @@ nano ~/.zshrc
 plugins=(git sudo z)
 ```
 
--   git：官方插件，默认开启，提供Git命令别名
-    
--   sudo：官方插件，使用快捷键 ESC ESC，在当前命令前快速插入 sudo
-    
--   z：官方插件，跟踪最常访问的目录，能够通过输入所需目录路径中的几个字符来快速访问
-    
+- git：官方插件，默认开启，提供Git命令别名
+
+- sudo：官方插件，使用快捷键 ESC ESC，在当前命令前快速插入 sudo
+
+- z：官方插件，跟踪最常访问的目录，能够通过输入所需目录路径中的几个字符来快速访问
 
 **生效配置**
 
@@ -272,76 +256,73 @@ ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 plugins=(git sudo z zsh-autosuggestions zsh-syntax-highlighting)
 ```
 
--   zsh-autosuggestions：三方插件，自动补全插件，根据历史命令和当前输入内容，自动推荐可能的命令
-    
--   zsh-syntax-highlighting：三方插件，语法高亮插件
-    
+- zsh-autosuggestions：三方插件，自动补全插件，根据历史命令和当前输入内容，自动推荐可能的命令
+
+- zsh-syntax-highlighting：三方插件，语法高亮插件
 
 ## 4 其他工具
 
 ### 4.1 Starship
 
-作用：精简、快速、可定制的 shell 提示符
+- 作用：精简、快速、可定制的 shell 提示符
 
-安装插件
+- 安装：`brew install starship`
 
-```Shell
-brew install starship
-```
+- 可选预设
 
-以下预设可选或选一
+    ```Shell
+    starship preset catppuccin-powerline -o ~/.config/starship.toml
+    starship preset tokyo-night -o ~/.config/starship.toml
+    starship preset gruvbox-rainbow -o ~/.config/starship.toml
+    ```
 
-```Shell
-starship preset catppuccin-powerline -o ~/.config/starship.toml
-starship preset tokyo-night -o ~/.config/starship.toml
-starship preset gruvbox-rainbow -o ~/.config/starship.toml
-```
-
-部分终端可能不支持该预设的图标，需要安装Nerd Font字体并手动设置，推荐字体：`JetBrainsMono Nerd Font`
-
-```Shell
-brew install --cask font-jetbrains-mono-nerd-font
-```
+    部分终端可能不支持该预设的图标，需要安装Nerd Font字体并手动设置，推荐字体：`JetBrainsMono Nerd Font`
 
 ### 4.2 fastfetch
 
-作用：获取系统信息并以美观的方式呈现，更快更现代的 `Neofetch`
+- 作用：获取系统信息并以美观的方式呈现，更快更现代的 `Neofetch`
 
-安装插件
+- 安装：`brew install fastfetch`
 
-```Shell
-brew install fastfetch
-```
-
-运行：`fastfetch`
+- 运行：`fastfetch`
 
 ### 4.3 fzf 模糊搜索
 
-作用：通用命令行模糊搜索工具
+- 作用：通用命令行模糊搜索工具
 
-安装插件
+- 安装：`brew install fzf`
 
-```Shell
-brew install fzf
-/opt/homebrew/opt/fzf/install
-```
+- 使用：
 
-使用：
+    - `Ctrl` + `R`：历史搜索增强
 
--   Ctrl + R：历史搜索增强
+    - `Ctrl` + `T`：文件搜索
+
+    - `Alt` + `C`：目录跳转
+
+    - `Ctrl`+ `C`：退出
+
+### 4.4 [eza](https://github.com/eza-community/eza)
+
+- 作用：现代的 ls 替代方案
+
+- 安装：`brew install eza`
+
+- 配置：
+
+    ```Shell
+    # eza aliases
+    alias ls="eza"
+    alias ll="eza -l --group-directories-first --icons"
     
--   Ctrl + T：文件搜索
-    
--   Alt + C：目录跳转
-    
--   Ctrl + C：退出
-    
+    source ~/.zshrc
+    ```
 
 # **6 后续**
 
--   zsh 优化（性能 + 启动速度）
-    
--   cmux
-    
+- zsh 优化（性能 + 启动速度）
 
-![image.png](https://cdn2.flowus.cn/oss/aaa28365-c965-43cd-bb75-89d6c3062fad/image.png?time=1776701700&token=f9a643cb9b93b516f3f18db32b45f577709d5de084cc72656d1420e027662987&role=sharePaid)
+- cmux
+
+![image.png](Mac+终端配置+3fe0fdae-f61c-4d74-b233-3405600badfd/image.png)
+
