@@ -8,7 +8,7 @@
 
     - 特点：适合开发者和重度效率用户，工作流自动化能力强
 
-- [utools](https://www.u.tools)⭐：跨平台插件化工具箱，适合快速调用翻译、OCR、JSON 等小工具。
+- [utools](https://www.u.tools) ⭐：跨平台插件化工具箱，适合快速调用翻译、OCR、JSON 等小工具。
 
     - 特点：适合轻量工具需求用户，开箱即用
 
@@ -18,7 +18,7 @@
 
     - 特点：界面精致、体验流畅，适合重度复制粘贴用户
 
-- [PasteNow](https://pastenow.app)⭐：剪贴板历史工具，支持多设备同步与快捷检索，偏国内用户使用场景优化。
+- [PasteNow](https://pastenow.app) ⭐：剪贴板历史工具，支持多设备同步与快捷检索，偏国内用户使用场景优化。
 
     - 特点：功能实用、轻量，适合基础剪贴板增强需求
 
@@ -32,7 +32,7 @@
 
 ### **截图工具**
 
-- [Snipaste](https://www.snipaste.com)⭐：强大的截图与贴图工具，支持截图后快速标注并“贴在桌面上”长期查看。
+- [Snipaste](https://www.snipaste.com) ⭐：强大的截图与贴图工具，支持截图后快速标注并“贴在桌面上”长期查看。
 
     - 特点：贴图能力极强，适合设计、开发与信息对照场景
 
@@ -50,7 +50,7 @@
 
 ### **分屏 / 窗口管理**
 
-- [Magnet](https://magnet.crowdcafe.com)⭐：窗口分屏与管理工具，支持快捷键快速将窗口排列到屏幕不同区域。
+- [Magnet](https://magnet.crowdcafe.com) ⭐：窗口分屏与管理工具，支持快捷键快速将窗口排列到屏幕不同区域。
 
     - 特点：高效窗口布局工具，适合多任务办公场景
 
@@ -78,13 +78,9 @@
 
 - [Ice](https://github.com/jordanbaird/Ice)：用于隐藏并整理菜单栏图标的管理工具。
 
-- [Itsycal](https://github.com/sfsam/Itsycal/tree/master
+- [Itsycal](https://github.com/sfsam/Itsycal/tree/master) ⭐：状态栏 日历/时间 小组件
 
-) ⭐：状态栏 日历/时间 小组件
-
-- [BetterDisplay](https://github.com/waydabber/BetterDisplay
-
-)：调节显示器亮度，分辨率等
+- [BetterDisplay](https://github.com/waydabber/BetterDisplay)：调节显示器亮度，分辨率等
 
 - [DockDoor](https://github.com/ejbills/DockDoor)：macOS 的窗口窥视、alt-tab 及其他增强功能
 
@@ -92,7 +88,7 @@
 
 ### **压缩工具**
 
-- [Keka](https://www.keka.io)⭐：macOS 轻量级压缩解压工具，支持多种格式（7z、zip、rar 等），可拖拽快速处理文件压缩与解
+- [Keka](https://www.keka.io) ⭐：macOS 轻量级压缩解压工具，支持多种格式（7z、zip、rar 等），可拖拽快速处理文件压缩与解
 
     - 特点：免费轻量、右键即用，适合日常文件压缩解压需求压。
 

@@ -1,12 +1,12 @@
 ## 安装
 
-- [Claude Code overview - Claude Code Docs ⭐](https://code.claude.com/docs/en/overview)
+- [Claude Code overview - Claude Code Docs](https://code.claude.com/docs/en/overview) ⭐
 
     ```Shell
     curl -fsSL https://claude.ai/install.sh | bash
     ```
 
-- [cc-switch ⭐](https://github.com/farion1231/cc-switch)：一款跨平台桌面一体化辅助工具，支持 Claude Code、Codex、OpenCode、openclaw 和 Gemini CLI。
+- [cc-switch](https://github.com/farion1231/cc-switch) ⭐：一款跨平台桌面一体化辅助工具，支持 Claude Code、Codex、OpenCode、openclaw 和 Gemini CLI。
 
     ```Shell
     # 通过 Homebrew 安装
@@ -127,15 +127,15 @@ Vercel市场：[The Agent Skills Directory](https://skills.sh/)
 
 ### 工具技能
 
-- [find-skills ⭐](https://skills.sh/vercel-labs/skills/find-skills)：一个技能搜索引擎，帮助用户快速定位并调用当前场景下最合适的工具。
+- [find-skills](https://skills.sh/vercel-labs/skills/find-skills) ⭐：一个技能搜索引擎，帮助用户快速定位并调用当前场景下最合适的工具。
 
-- [skill-creator ⭐](https://github.com/anthropics/skills/tree/main/skills/skill-creator)：允许用户将个人的经验、特定的业务逻辑封装成可复用的技能。
+- [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) ⭐：允许用户将个人的经验、特定的业务逻辑封装成可复用的技能。
 
 
 
 ### 工作流
 
-- [Superpowers ⭐](https://github.com/obra/superpowers)：TDD（测试驱动开发）- 多代理协作的完整开发工作流，强制流程约束 AI 的执行过程。
+- [Superpowers](https://github.com/obra/superpowers) ⭐：TDD（测试驱动开发）- 多代理协作的完整开发工作流，强制流程约束 AI 的执行过程。
 
     - `/superpowers:brainstorm`：设计规划技能 — 把模糊的想法变成具体的设计方案。了解项目现状；逐一提问，理解需求、目的、约束；提出 2-3 个方案并给出推荐；产出设计文档并保存到文件；最终调用 writing-plans 生成实施计划
 
@@ -145,21 +145,21 @@ Vercel市场：[The Agent Skills Directory](https://skills.sh/)
 
     - 系统化调试技能：不是靠"试试看"，而是有结构的问题诊断和解决流程
 
-- [mattpocock/skills](https://github.com/mattpocock/skills)[ ⭐](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-md-management)：一套前端开发工具，解决人和 Agent 之间沟通对不齐的问题
+- [mattpocock/skills](https://github.com/mattpocock/skills) ⭐：一套前端开发工具，解决人和 Agent 之间沟通对不齐的问题
 
     - **开发类**
 
-        - `/setup-matt-pocock-skills`⭐：初始化，生成CONTEXT.md和ADR 文档。（术语表和架构决策记录）
+        - `/setup-matt-pocock-skills` ⭐：初始化，生成CONTEXT.md和ADR 文档。（术语表和架构决策记录）
 
-        - `/grill-with-docs`⭐：逐个分支拷问你的计划，对标项目已有术语表（CONTEXT.md）和架构决策记录（ADRs），同时实时更新。
+        - `/grill-with-docs` ⭐：逐个分支拷问你的计划，对标项目已有术语表（CONTEXT.md）和架构决策记录（ADRs），同时实时更新。
 
         - `/tdd`：测试驱动开发，严格的 red-green-refactor 循环
 
-        - `/improve-codebase-architecture`⭐：反熵增任务 - 每隔几天跑一次，找代码深度化的机会。扫描代码库，寻找可以让接口更简洁、内聚更强的重构机会。
+        - `/improve-codebase-architecture` ⭐：反熵增任务 - 每隔几天跑一次，找代码深度化的机会。扫描代码库，寻找可以让接口更简洁、内聚更强的重构机会。
 
-        - `/diagnose`⭐：bug 找不到根因、问题复杂时使用 - 先复现、再二分、再形成假设、再验证。禁止猜
+        - `/diagnose` ⭐：bug 找不到根因、问题复杂时使用 - 先复现、再二分、再形成假设、再验证。禁止猜
 
-        - `/prototype`⭐：快速验证一个想法、可选方案对比、实验性代码；快速写出可运行代码
+        - `/prototype` ⭐：快速验证一个想法、可选方案对比、实验性代码；快速写出可运行代码
 
     - **工具与工程化类**
 
@@ -185,15 +185,15 @@ Vercel市场：[The Agent Skills Directory](https://skills.sh/)
 
 - [andrej-karpathy-skills/karpathy-guidelines](https://github.com/forrestchang/andrej-karpathy-skills) ⭐：四原则：编码前思考、简洁优先、精准修改、目标驱动执行
 
-- [claude-plugins-official/claude-md-management ⭐](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-md-management)：Claude官方技能
+- [claude-plugins-official/claude-md-management](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-md-management) ⭐：Claude官方技能
 
     - `/claude-md-improver`：扫描、评估并改进项目 CLAUDE.md 文件质量的工具，确保文档准确、可操作。
 
-- [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills)[ ⭐](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-md-management)：数字生命卡兹克开源的 AI Skills 合集
+- [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) ⭐：数字生命卡兹克开源的 AI Skills 合集
 
-    - [neat-freak](https://github.com/KKKKhazix/khazix-skills#-neat-freak%E6%B4%81%E7%99%96)[ ⭐](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-md-management)：干完活跑一下 ，自动把你这次改的东西跟项目文档、CLAUDE.md、Agent 记忆全部对齐
+    - [neat-freak](https://github.com/KKKKhazix/khazix-skills#-neat-freak%E6%B4%81%E7%99%96) ⭐：干完活跑一下 ，自动把你这次改的东西跟项目文档、CLAUDE.md、Agent 记忆全部对齐
 
-    - [hv-analysis（横纵分析法）](https://github.com/KKKKhazix/khazix-skills#-hv-analysis%E6%A8%AA%E7%BA%B5%E5%88%86%E6%9E%90%E6%B3%95)[⭐](https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-md-management)：想搞懂一个产品/公司/概念是怎么回事，给一份万字 PDF 研究报告
+    - [hv-analysis（横纵分析法）](https://github.com/KKKKhazix/khazix-skills#-hv-analysis%E6%A8%AA%E7%BA%B5%E5%88%86%E6%9E%90%E6%B3%95) ⭐：想搞懂一个产品/公司/概念是怎么回事，给一份万字 PDF 研究报告
 
 - [technical-writer](https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/awesome_agent_skills/technical-writer?utm_source=chatgpt.com) ⭐：标准化 README 生成；API 接口文档编写；技术教程、用户指南创作；中英文文档翻译
 
@@ -219,9 +219,9 @@ Vercel市场：[The Agent Skills Directory](https://skills.sh/)
 
 ### UI/UX 设计
 
-- [frontend-design ⭐](https://github.com/anthropics/skills/tree/main/skills/frontend-design)：生成新代码，生成完整组件代码
+- [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) ⭐：生成新代码，生成完整组件代码
 
-- [ui-ux-pro-max-skill ⭐](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)：设计系统+审计
+- [ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) ⭐：设计系统+审计
 
 - **impeccable：**[GitHub - pbakaus/impeccable](https://github.com/pbakaus/impeccable)
 
@@ -279,7 +279,7 @@ Vercel市场：[The Agent Skills Directory](https://skills.sh/)
 
 - [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)
 
-    - `/web-design-guidelines`⭐：根据 Vercel 的网页界面指南审核 UI 代码，以确保设计和无障碍合规性。
+    - `/web-design-guidelines` ⭐：根据 Vercel 的网页界面指南审核 UI 代码，以确保设计和无障碍合规性。
 
     - `/vercel-react-best-practices`：React 和 Next.js 性能优化指南，包含 8 个类别的 64 条优先级规则。
 
@@ -490,7 +490,7 @@ Vercel市场：[The Agent Skills Directory](https://skills.sh/)
 
 > 状态栏插件
 
-- [ccstatusline ⭐](https://github.com/sirmalloc/ccstatusline)：一个高度可定制的 Claude 代码状态行格式化器 ，显示*模型信息、git 分支、令牌使用情况及其他指标，显示终端中的*数据
+- [ccstatusline](https://github.com/sirmalloc/ccstatusline) ⭐：一个高度可定制的 Claude 代码状态行格式化器 ，显示*模型信息、git 分支、令牌使用情况及其他指标，显示终端中的*数据
 
     ```Shell
     # Run the configuration TUI with npm
