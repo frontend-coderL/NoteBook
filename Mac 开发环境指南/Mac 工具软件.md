@@ -78,13 +78,9 @@
 
 - [Ice](https://github.com/jordanbaird/Ice)：用于隐藏并整理菜单栏图标的管理工具。
 
-- [Itsycal](https://github.com/sfsam/Itsycal/tree/master
+- [Itsycal](https://github.com/sfsam/Itsycal/tree/master) ⭐：状态栏 日历/时间 小组件
 
-) ⭐：状态栏 日历/时间 小组件
-
-- [BetterDisplay](https://github.com/waydabber/BetterDisplay
-
-)：调节显示器亮度，分辨率等
+- [BetterDisplay](https://github.com/waydabber/BetterDisplay)：调节显示器亮度，分辨率等
 
 - [DockDoor](https://github.com/ejbills/DockDoor)：macOS 的窗口窥视、alt-tab 及其他增强功能
 
