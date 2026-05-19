@@ -14,8 +14,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 NoteBook/
 ├── Mac 开发环境指南/         # Mac 装机与开发环境配置
 │   ├── Claude Code.md        # Claude Code 配置、插件、Skills
-│   ├── Mac 工具软件.md        # 启动器、剪贴板、截图、播放器等
-│   ├── Mac 效率配置.md        # 系统级效率配置
+│   ├── Mac 效率与工具.md       # 系统效率配置与常用软件推荐
 │   ├── Mac 终端配置.md        # zsh / 终端环境
 │   ├── 编程语言管理.md         # Node / Python 等版本管理（nvm、uv 等）
 │   └── Github 优秀开源项目.md  # 收藏的开源项目
