@@ -1,72 +1,38 @@
-- [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)：通过从零开始重现你喜欢的技术来掌握编程。
+## 编程学习与方法论
 
+- [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)：通过从零开始重现你喜欢的技术来掌握编程，适合按专题系统补基础。
+- [SkillOpt](https://aka.ms/SkillOpt)：把 Agent 的 skill 当作可训练的软件资产来优化，通过真实执行轨迹、结构化编辑和验证门持续改进外部技能文档，适合用来学习 Agent 如何沉淀流程经验，而不只是反复手改提示词。
+  - 核心机制：基于 rollout、反思分析和 `add / delete / replace` 编辑迭代 skill 文档，再用 selection split 验证候选改动是否真的有效。
+  - 值得关注：它把学习率、验证集、momentum 这类训练纪律迁移到文本技能优化中，适合理解企业 Agent、代码 Agent、办公自动化 Agent 的流程能力如何被系统性训练出来。
 
+## Agent 与工作流
 
+- [openai-agents-python](https://github.com/openai/openai-agents-python)：OpenAI Agents SDK 的 Python 实现，用于构建多代理工作流，支持 OpenAI Responses API、Chat Completions API 以及 100+ 其他大模型。
 - [DeepSeek-TUI](https://github.com/Hmbown/DeepSeek-TUI)：终端原生的 DeepSeek 编程智能体方案。
+- [hermes-agent](https://github.com/NousResearch/hermes-agent)：自我提升 AI 代理，强调从经验中积累技能、检索历史对话并持续优化自身行为。
 
-- [hermes-agent](https://github.com/NousResearch/hermes-agent)：**自我提升 AI 代理。** 它是唯一内置学习循环的代理——它从经验中创造技能，在使用过程中不断提升，推动自身持续掌握知识，搜索自身的过往对话，并在会话中构建更深化的你是谁的模型。
+## RAG 与文档处理
 
-- [PageIndex](https://github.com/VectifyAI/PageIndex)：告别向量数据库，用推理定义RAG。像专家一样"翻书"
-
-    - RAG（Retrieval-Augmented Generation，检索增强生成）
-
-        - 切分破坏语义：一份 200 页的年报被切成 500 个 chunk，上下文关系被粗暴打断
-
-        - 相似度 ≠ 相关性：向量空间中"语义接近"的片段未必是回答问题真正需要的内容
-
-        - 黑盒检索：为什么召回了这 5 个 chunk 而不是另外 5 个？无法解释
-
-        - 结构丢失：文档的目录、层级、章节关系在切分后荡然无存
-
-
-
+- [PageIndex](https://github.com/VectifyAI/PageIndex)：尝试用推理和文档结构替代传统向量检索，适合关注 RAG 可解释性和长文档阅读体验的场景。
+  - 关注点：它直接针对传统 RAG 中的语义切分、相似度误召回、检索黑盒和文档结构丢失问题。
 - [markitdown](https://github.com/microsoft/markitdown)：Python 工具，用于将文件和办公文档转换为 Markdown 格式。
+- [marker](https://github.com/datalab-to/marker)：将 PDF 转换为 Markdown 和 JSON，适合做 PDF 内容抽取与结构化处理。
+- [markit](https://github.com/Michaelliv/markit)：将 PDF、Word、PPT、Excel、HTML、EPUB、Jupyter、RSS、图片、音频、ZIP、URL 等多种格式统一转为 Markdown，也支持图像描述和音频转录。
+- [opendataloader-pdf](https://github.com/opendataloader-project/opendataloader-pdf)：面向 AI 数据提取的 PDF 解析器，可从 PDF 中提取 Markdown、HTML 和带边界框的 JSON。
+- [ppt-master](https://github.com/hugohe3/ppt-master)：把 AI 生成的 SVG 转成 DrawingML，再生成真正可编辑的 PPT 文件。
 
-- [marker](https://github.com/datalab-to/marker)：快速且高精度地将 PDF 转换为 markdown + JSON
+## Web 自动化与采集
 
-- [Michaelliv/markit](https://github.com/Michaelliv/markit)：将 PDF、Word、PPT、Excel、HTML、EPUB、Jupyter、RSS、图片、音频、ZIP、URL 等 **20+ 种格式**一键转为 Markdown，还能用 AI 自动描述图片和转录音频。CLI 和 SDK 双模式，开发者友好。
+- [browser-use](https://github.com/browser-use/browser-use)：让 AI 代理更稳定地理解和操作网页，适合浏览器自动化任务。
+  - 关键思路：把复杂网页转成 AI 更容易理解的编号化结构，让模型能像人一样观察页面后再执行动作。
+- [page-agent](https://github.com/alibaba/page-agent)：纯 JavaScript 实现的 GUI Agent，支持用自然语言操作 Web 应用。
+- [page-assist](https://github.com/n4ze3m/page-assist)：在浏览网页时调用本地运行的 AI 模型辅助理解页面内容与执行操作。
+- [Scrapling](https://github.com/D4Vinci/Scrapling)：一个自适应 Web 爬虫框架，从小脚本到大规模采集都能覆盖。
+  - 网站改版：解析器能记住元素特征，页面结构变化后自动重新定位目标节点。
+  - 规模化采集：提供类似 Scrapy 的 Spider 框架，支持并发、暂停恢复、代理轮换与实时流式输出。
+  - 反爬处理：内置 Cloudflare Turnstile 等常见反爬绕过能力，减少手动调参成本。
 
-- [ppt-master](https://github.com/hugohe3/ppt-master)：AI 生成 SVG，脚本将 SVG 转换为 DrawingML，生成真正的 PPT
+## 系统与文件工具
 
-- [opendataloader-pdf](https://github.com/opendataloader-project/opendataloader-pdf)：用于 **AI 数据提取的 PDF 解析器** ——从任意 PDF 中提取 Markdown、JSON（带边界框）和 HTML。
-
-
-
-- [openai-agents-python](https://github.com/openai/openai-agents-python)：OpenAI Agents SDK是一个轻量但强大的多代理工作流程构建框架。它不依赖于提供者，支持 OpenAI 响应和聊天完成 API，以及 100+其他大型语言模型。
-
-
-
-- [browser-use](https://github.com/browser-use/browser-use)：让网站对 AI 代理开放。轻松实现在线自动化任务。
-
-    - 把复杂的网页"翻译"成 AI 能理解的编号列表，让 AI 像人一样"看到"页面，做出决策，执行操作。
-
-- [page-agent](https://github.com/alibaba/page-agent)：纯 JS 实现的 GUI agent。使用自然语言操作你的 Web 应用。
-
-
-
-- [nginxpulse](https://github.com/likaia/nginxpulse)：实时统计、PV 过滤、IP 归属地与客户端解析。
-
-
-
-- [fileview](https://github.com/Hiro-Chiba/fileview)：一个快速且轻便的工具，用于探索和检查文件和文件夹
-
-
-
-- [Scrapling](https://github.com/D4Vinci/Scrapling)：一个自适应 Web 爬虫框架，从小脚本到大规模采集全覆盖。
-
-    - 网站改版：解析器能「记住」元素特征，页面结构变化后自动重新定位目标节点。
-
-    - 反爬拦截：内置 Cloudflare Turnstile 等反爬绕过，开箱即用，无需手动调参。
-
-    - 规模化采集：提供类似 Scrapy 的 Spider 框架，支持并发、暂停恢复、代理轮换与实时流式输出。
-
-
-
-- [GitHub - n4ze3m/page-assist: Use your locally running AI models to assist you in your web browsing](https://github.com/n4ze3m/page-assist)
-
-
-
-
-
-
-
+- [nginxpulse](https://github.com/likaia/nginxpulse)：实时统计 Nginx 指标，支持 PV 过滤、IP 归属地与客户端解析。
+- [fileview](https://github.com/Hiro-Chiba/fileview)：一个快速且轻便的文件与文件夹查看工具，适合临时浏览目录结构和文件内容。
