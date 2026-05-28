@@ -57,8 +57,12 @@
   - `/plan-eng-review`：锁定技术架构、数据流和接口契约，输出完整技术方案。
   - `/plan-design-review`：完成 UI/UX 设计评审，锁定交互细节。
   - `/autoplan`：一键审查流水。
-- [Everything Claude Code](https://github.com/affaan-m/everything-claude-code)：面向 Claude Code 的“全家桶”配置仓库，集中整理 agents、skills、slash commands、rules、hooks 和 MCP server 配置示例。
+- [Everything Claude Code](https://github.com/affaan-m/everything-claude-code)：面向 Claude Code 的”全家桶”配置仓库，集中整理 agents、skills、slash commands、rules、hooks 和 MCP server 配置示例。
   - 使用：`/planner`
+- [claude-code-harness](https://github.com/Chachamaru127/claude-code-harness)：在 Claude Code 外套一个有纪律的交付循环，把”计划→实现→审查→发布”变成固定路径。
+  - 核心 skill：`/harness-plan`（起草 spec.md 和 Plans.md）、`/harness-work`（TDD 执行已批准任务）、`/harness-review`（实现与审查分离，独立审查）、`/harness-release`（打包发布证据，preflight 检查）
+  - `harness.toml`：项目级安全边界和行为策略配置文件，定义权限控制、网络出口过滤、文件系统读取限制和 Worker 自检规则。
+  - 适合：觉得 Claude Code 写代码快但质量不稳定的 solo 开发者，用流程约束替代靠运气交付。
 
 ### Spec / Plan 驱动开发
 
@@ -193,7 +197,10 @@
 - [last30days-skill](https://github.com/mvanhorn/last30days-skill)：一个多源实时研究引擎，通过“最近 30 天 + 多源聚合”抓取海外社区的真实评论与讨论。
 - [last30days-skill-cn](https://github.com/Jesseovo/last30days-skill-cn)：一个面向中文互联网的最近 30 天内容研究技能。
 - [baoyu-skills](https://github.com/jimliu/baoyu-skills)：内容生成、发布和图像生成技能合集。
-- [huashu-skills](https://github.com/alchaincyf/huashu-skills)：覆盖 AI 审校、选题生成、视频大纲、素材搜索等 11 个内容技能。
+- [huashu-skills](https://github.com/alchaincyf/huashu-skills) ⭐：花叔的 Claude Code Skills 合集，21 个经过实战验证的内容创作技能，覆盖从选题到发布的完整工作流。
+  - `/huashu-slides`：AI 演示文稿，把文章、提纲或主题快速转成可演示的幻灯片。
+  - `/huashu-design`：设计哲学顾问，做高保真原型、交互 demo、动画、设计变体，可导出 MP4 / GIF。
+  - `/huashu-proofreading`：三遍审校降 AI 味，去除文本里的 AI 生成痕迹让措辞更自然。
 - [humanizer-zh](https://clawhub.ai/liuxy951129-cpu/humanizer-zh)：去除文本里的 AI 生成痕迹，让措辞更自然。
 - [knowledge-site-creator](https://github.com/joeseesun/qiaomu-knowledge-site-creator)：一句话生成任意领域的知识型网站。
 
@@ -210,13 +217,16 @@
 - [frontend-slides](https://github.com/zarazhangrui/frontend-slides)：利用 Claude 的前端能力生成精美 HTML 幻灯片。
   - 适合产品汇报、技术分享和对外演示。
 - [ppt-master](https://github.com/hugohe3/ppt-master)：AI 从任意文档生成可原生编辑的 PPTX。
-- [guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill)：生成单文件 HTML 横向翻页 PPT，视觉风格偏“电子杂志 × 电子墨水”。
+- [guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill)：生成单文件 HTML 横向翻页 PPT，视觉风格偏”电子杂志 × 电子墨水”。
   - 合适：线下分享、行业内部讲话、私享会、AI 产品发布、demo day。
   - 不合适：大段表格数据、培训课件、多人协作编辑。
 - [Kami](https://github.com/tw93/Kami)：让 AI 生成的文档具备更完整的排版表达。
   - 支持一页纸报告、研究报告、正式信函、个人展示、简历、演示幻灯片等文档类型。
 - [html-ppt-skill](https://github.com/lewislulu/html-ppt-skill)：HTML PPT Studio，提供多主题、多布局和动画能力。
 - [open-slide](https://github.com/1weiho/open-slide)：专为 AI 智能体设计的幻灯片框架，可通过自然语言一键生成 PPT。
+- [html-anything](https://github.com/nexu-io/html-anything)：调用本地 AI 编码 CLI 生成专业级单文件 HTML，75 套模板覆盖小红书卡片、演示文稿、办公文档、数据报告、视频帧脚本等 9 大场景。
+  - 工作方式：描述需求 → 选择模板 → AI 流式生成 → 实时预览 → 一键导出。
+  - 适合：内容创作者快速生成多平台发布成品、职场人做 PPT 和周报、产品/设计师出落地页原型。
 
 ### 架构图与解释图
 
@@ -236,3 +246,4 @@
 
 - [self-improving-agent](https://clawhub.ai/pskoett/self-improving-agent)：一套分层记忆系统。
 - [Self-Improving](https://clawhub.ai/ivangdavila/self-improving)：一套分层记忆系统。
+
