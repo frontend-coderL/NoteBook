@@ -13,7 +13,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 NoteBook/
 ├── Mac 开发环境指南/         # Mac 装机与开发环境配置
-│   ├── Claude Code.md        # Claude Code 配置、插件、Skills
+│   ├── Agent Skills.md        # Agent Skills 配置与使用
+│   ├── Claude Code.md        # Claude Code 配置、插件
 │   ├── Mac 效率与工具.md       # 系统效率配置与常用软件推荐
 │   ├── Mac 终端配置.md        # zsh / 终端环境
 │   ├── 编程语言管理.md         # Node / Python 等版本管理（nvm、uv 等）
@@ -56,7 +57,8 @@ NoteBook/
 
 - 文件名 / 目录名使用**中文 + 空格**（如 `前端基础能力/`），不要改成短横线或拼音。
 - 章节使用 `##` 二级 / `###` 三级标题分类；同一文件内层级一般不超过 4 级。
-- 链接首选 GitHub 仓库或官网；避免使用 GitHub 自动生成的长 title 作为链接文字（形如 `GitHub - org/repo: 项目描述……`），改写为简洁的项目名。
+- 链接首选 GitHub 仓库或官网；避免使用 GitHub 自动生成的长 title 作为链接文字（形如 `GitHub - org/repo: 项目描述……`），改写为简洁的项目名；
+- 中文目录名内使用中文标点（`、"、`、`——` 等），提升可读性；
 
 ## 提交信息约定
 
