@@ -112,7 +112,7 @@
   - 内置知识图谱：不只是文本记忆，还能建立实体关系
 - [Beads](https://github.com/gastownhall/beads)：为编码代理提供持久的结构化内存。它用依赖感知图取代了混乱的标记降计划，使代理能够处理长视野任务而不丢失上下文。把项目任务、依赖关系、进度全部存在一个 Dolt（版本控制 SQL 数据库）里，然后通过 CLI 命令暴露给 AI 编程工具。
 
-> 代码图谱的记忆系统  [让 Agent 读懂代码库:代码知识图谱框架调研(理论篇)](https://mp.weixin.qq.com/s/5B-QYdMEvoCiAPp4FGlk_Q)
+> 代码图谱的记忆系统 [让 Agent 读懂代码库:代码知识图谱框架调研(理论篇)](https://mp.weixin.qq.com/s/5B-QYdMEvoCiAPp4FGlk_Q)
 
 - [code-review-graph](https://github.com/tirth8205/code-review-graph)：基于 Tree-sitter 的增量式代码知识图谱构建工具，专门为 AI 辅助代码评审场景优化。6.8倍至 49倍 Token 削减
   - 注意：需要Python 3.10+，首次建图时间可能较长，install 后需要重启Claude Code，不是所有语言都完美支持
@@ -123,12 +123,12 @@
   - 一条命令 `npx gitnexus analyze` 跑完所有事——索引、装 skill、注册 Claude Code hooks、生成 `AGENTS.md` / `CLAUDE.md`
   - 14 种语言（TypeScript / JavaScript / Python / Java / Kotlin / C# / Go / Rust / PHP / Ruby / Swift / C / C++ / Dart）
   - 适用场景：几十万行的巨石应用或错综复杂的 Monorepo，需要理清模块边界、追踪跨文件的执行流，或者在重构前评估“牵一发而动全身”的破坏力时。
-- [Understand-Anything](https://github.com/Lum1104/Understand-Anything)：依托多智能体架构与知识图谱技术，将复杂代码库转化为可探索、可搜索、可问答的交互式图谱。
-  - 一键图谱：自动检测项目类型，选择最优索引策略，3 分钟生成初始图谱。
-  - 书签功能：重要区域子图保存为书签，点击直达，无需重新搜索。
-  - 时间轴视图：展示代码库重要变化节点，对比变化前后的图谱差异。
-  - AI 问答：高亮标注回答对应的节点和路径，文字 + 视觉双重理解。
-  - 适合：接手陌生代码库、技术 Leader 架构评审、重构前摸底。
+- [Understand-Anything](https://github.com/Lum1104/Understand-Anything)：依托多智能体架构与知识图谱技术，将代码库转化为可探索、可搜索、可问答的交互式知识图谱。
+  - 核心功能：交互式 Dashboard、影响分析（改代码前看 ripple effect）、导览路线（按依赖顺序 onboarding）、模糊语义搜索、架构层可视化（颜色编码）。
+  - 一键图谱：自动检测项目类型，选择最优索引策略，3 分钟生成初始图谱
+  - Tree-sitter + LLM 架构：结构解析保证一致性，LLM 生成语义摘要，图谱可提交进 git 团队共享，支持增量更新。
+  - 多语言输出：中英日韩等 6 种语言。
+  - 适合：新人入职理解大代码库、接手遗留项目、团队知识共享（commit 图谱）、架构 review 可视化。
   - 注意：超大代码库（10 万行+）首次初始化建议在空闲时段运行；Token 消耗较高、超大图谱可能卡顿。
 - [CodeGraph](https://github.com/colbymchenry/codegraph)：AI 编码工具的"缓存层"，把代码库建成可查询的知识图谱，降低 Token 消耗。
   - 懒加载索引：按需索引核心文件，大型代码库首次索引从分钟级降到秒级。
