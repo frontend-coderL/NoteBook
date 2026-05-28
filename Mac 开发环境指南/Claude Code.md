@@ -123,8 +123,18 @@
   - 一条命令 `npx gitnexus analyze` 跑完所有事——索引、装 skill、注册 Claude Code hooks、生成 `AGENTS.md` / `CLAUDE.md`
   - 14 种语言（TypeScript / JavaScript / Python / Java / Kotlin / C# / Go / Rust / PHP / Ruby / Swift / C / C++ / Dart）
   - 适用场景：几十万行的巨石应用或错综复杂的 Monorepo，需要理清模块边界、追踪跨文件的执行流，或者在重构前评估“牵一发而动全身”的破坏力时。
-- [Understand-Anything](https://github.com/Lum1104/Understand-Anything)：依托多智能体架构与知识图谱技术，将复杂代码库转化为可探索、可搜索、可问答的交互式图谱
-  - Token 消耗较高、超大图谱卡顿
+- [Understand-Anything](https://github.com/Lum1104/Understand-Anything)：依托多智能体架构与知识图谱技术，将复杂代码库转化为可探索、可搜索、可问答的交互式图谱。
+  - 一键图谱：自动检测项目类型，选择最优索引策略，3 分钟生成初始图谱。
+  - 书签功能：重要区域子图保存为书签，点击直达，无需重新搜索。
+  - 时间轴视图：展示代码库重要变化节点，对比变化前后的图谱差异。
+  - AI 问答：高亮标注回答对应的节点和路径，文字 + 视觉双重理解。
+  - 适合：接手陌生代码库、技术 Leader 架构评审、重构前摸底。
+  - 注意：超大代码库（10 万行+）首次初始化建议在空闲时段运行；Token 消耗较高、超大图谱可能卡顿。
+- [CodeGraph](https://github.com/colbymchenry/codegraph)：AI 编码工具的"缓存层"，把代码库建成可查询的知识图谱，降低 Token 消耗。
+  - 懒加载索引：按需索引核心文件，大型代码库首次索引从分钟级降到秒级。
+  - 熵值监控：量化代码库无序程度，追踪代码库健康趋势。
+  - MCP 异步支持：多个查询并行执行，不互相阻塞。
+  - 适合：大型代码库维护者、AI 编码工具重度用户、技术债管理。
 
 > Token 压缩
 

@@ -136,7 +136,12 @@
 
 ### **AI 开发工具**
 
-- [codux](https://github.com/duxweb/codux) ⭐：原生 macOS 终端工作区，专为 AI 编程工具打造，支持多项目管理、内置 Git 和 AI 用量追踪。
+- [muxy](https://github.com/muxy-app/muxy) ⭐：轻量级且内存高效的 Mac 终端，采用 SwiftUI 和 libghostty 构建
+- [terax-ai](https://github.com/crynta/terax-ai)：轻量级（7MB）终端优先的 AI 原生开发工作空间
+- [ZCode](https://zcode-ai.com/)：ZCode 将最强大的 AI Agents 与现有工具链结合，让你在熟悉的流程中完成规划、编码、评审与上线。
+
+* [codux](https://github.com/duxweb/codux)：原生 macOS 终端工作区，专为 AI 编程工具打造，支持多项目管理、内置 Git 和 AI 用量追踪。
+* [cmux](https://github.com/manaflow-ai/cmux)：基于 Ghostty 的 macOS AI 编码专用终端。
 
 ### **IDE 与编辑器**
 

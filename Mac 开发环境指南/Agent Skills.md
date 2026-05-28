@@ -57,17 +57,20 @@
   - `/plan-eng-review`：锁定技术架构、数据流和接口契约，输出完整技术方案。
   - `/plan-design-review`：完成 UI/UX 设计评审，锁定交互细节。
   - `/autoplan`：一键审查流水。
-- [Everything Claude Code](https://github.com/affaan-m/everything-claude-code)：面向 Claude Code 的”全家桶”配置仓库，集中整理 agents、skills、slash commands、rules、hooks 和 MCP server 配置示例。
-  - 使用：`/planner`
 - [claude-code-harness](https://github.com/Chachamaru127/claude-code-harness)：在 Claude Code 外套一个有纪律的交付循环，把”计划→实现→审查→发布”变成固定路径。
   - 核心 skill：`/harness-plan`（起草 spec.md 和 Plans.md）、`/harness-work`（TDD 执行已批准任务）、`/harness-review`（实现与审查分离，独立审查）、`/harness-release`（打包发布证据，preflight 检查）
   - `harness.toml`：项目级安全边界和行为策略配置文件，定义权限控制、网络出口过滤、文件系统读取限制和 Worker 自检规则。
   - 适合：觉得 Claude Code 写代码快但质量不稳定的 solo 开发者，用流程约束替代靠运气交付。
+- [ECC (Elite Coding Companion)](https://github.com/affaan-m/ECC) ⭐：面向 Claude Code 的”全家桶”配置仓库，集中整理 agents、skills、slash commands、rules、hooks 和 MCP server 配置示例。
+  - 本能系统：预配置编码反应模式，自动触发 SQL 注入检测等安全检查。
+  - 记忆分层：工作记忆 → 场景记忆 → 长期记忆，跨会话保留项目知识。
+  - 安全沙箱：文件/命令/网络操作单独配置允许/拒绝/询问策略。
+  - 性能仪表板：记录 Function 调用耗时和 Token 消耗热力图。
+  - 使用：`/planner`
 
 ### Spec / Plan 驱动开发
 
 - [planning-with-files](https://github.com/OthmanAdi/planning-with-files)：基于文件落盘的规划技能。
-  - 注意：与 [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) 存在冲突。
 - [Spec Kit](https://github.com/github/spec-kit)：用模板和脚手架约束 AI 行为的 Spec-Driven Development 工具。
   - `/speckit.constitution`：定义代码风格、技术栈限制和必须遵守的规范。
   - `/speckit.specify`：把需求发散为功能列表、用户故事和业务逻辑。
@@ -97,7 +100,7 @@
 
 ### 工程规范与架构
 
-- [karpathy-guidelines](https://github.com/forrestchang/andrej-karpathy-skills) ⭐：四原则，强调编码前思考、简洁优先、精准修改、目标驱动执行。
+- [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) ⭐：强调编码前思考、简洁优先、精准修改、目标驱动执行。
 - [wshobson/agents](https://github.com/wshobson/agents)：一个大型 Agent / Skills 集合，适合补齐架构、接口和工程化规范。
   - `/architecture-patterns`：根据业务场景推荐合适架构模式，并说明优缺点与适用场景。
   - `/architecture-decision-records`：按最佳实践编写和维护 ADR。
@@ -246,4 +249,3 @@
 
 - [self-improving-agent](https://clawhub.ai/pskoett/self-improving-agent)：一套分层记忆系统。
 - [Self-Improving](https://clawhub.ai/ivangdavila/self-improving)：一套分层记忆系统。
-
