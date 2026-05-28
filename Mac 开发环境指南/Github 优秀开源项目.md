@@ -7,7 +7,6 @@
 
 ## Agent 与工作流
 
-- [openai-agents-python](https://github.com/openai/openai-agents-python)：OpenAI Agents SDK 的 Python 实现，用于构建多代理工作流，支持 OpenAI Responses API、Chat Completions API 以及 100+ 其他大模型。
 - [DeepSeek-TUI](https://github.com/Hmbown/DeepSeek-TUI)：终端原生的 DeepSeek 编程智能体方案。
 - [hermes-agent](https://github.com/NousResearch/hermes-agent)：自我提升 AI 代理，强调从经验中积累技能、检索历史对话并持续优化自身行为。
 
@@ -15,10 +14,6 @@
 
 - [PageIndex](https://github.com/VectifyAI/PageIndex)：尝试用推理和文档结构替代传统向量检索，适合关注 RAG 可解释性和长文档阅读体验的场景。
   - 关注点：它直接针对传统 RAG 中的语义切分、相似度误召回、检索黑盒和文档结构丢失问题。
-- [markitdown](https://github.com/microsoft/markitdown)：Python 工具，用于将文件和办公文档转换为 Markdown 格式。
-- [marker](https://github.com/datalab-to/marker)：将 PDF 转换为 Markdown 和 JSON，适合做 PDF 内容抽取与结构化处理。
-- [markit](https://github.com/Michaelliv/markit)：将 PDF、Word、PPT、Excel、HTML、EPUB、Jupyter、RSS、图片、音频、ZIP、URL 等多种格式统一转为 Markdown，也支持图像描述和音频转录。
-- [opendataloader-pdf](https://github.com/opendataloader-project/opendataloader-pdf)：面向 AI 数据提取的 PDF 解析器，可从 PDF 中提取 Markdown、HTML 和带边界框的 JSON。
 - [ppt-master](https://github.com/hugohe3/ppt-master)：把 AI 生成的 SVG 转成 DrawingML，再生成真正可编辑的 PPT 文件。
 
 ## Web 自动化与采集
