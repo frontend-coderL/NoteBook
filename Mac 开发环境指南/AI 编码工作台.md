@@ -4,14 +4,13 @@
 
 跨平台桌面一体化工具，统一管理多个 AI 编码 CLI（Claude Code、Codex、OpenCode、OpenClaw、Gemini CLI 等）的安装、配置、Provider 切换与启动。
 
-- **官方仓库**：[farion1231/cc-switch](https://github.com/farion1231/cc-switch) ⭐
+- **官方仓库**：[farion1231/cc-switch](https://github.com/farion1231/cc-switch) ⭐（8.9 万 Star）
 
 **核心能力**
 
-- **多 CLI 统一管理**：在同一个 GUI 里装、卸、切换 Claude Code / Codex / OpenCode / OpenClaw / Gemini CLI。
+- **多 CLI 统一管理**：在同一个 GUI 里装、卸、切换 Claude Code / Codex / OpenCode / OpenClaw / Gemini CLI 等七个主流客户端。
 - **Provider 切换**：内置多家 API / 中转服务商（官方、第三方代理、自建中转），一键切换当前激活的 Provider，免改环境变量。
 - **配置集中化**：CLI 的 config / auth / MCP 配置文件统一管理，避免散落在多个目录。
-- **导入现有配置**：可一键发现并导入已存在的 CLI 配置。
 
 ### CLIProxyAPI
 
@@ -26,7 +25,10 @@
 Anthropic 官方终端编码 Agent，原生支持 MCP、Skills、Hooks、子代理。
 
 - **官方文档**：[Claude Code overview](https://code.claude.com/docs/en/overview) ⭐
-- [claude code 最佳实践](https://github.com/shanraisshan/claude-code-best-practice)
+- [claude code 最佳实践](https://github.com/shanraisshan/claude-code-best-practice) ⭐：一份完整的 Claude Code 工程化实战手册，覆盖 subagents、commands、skills、workflows、hooks、MCP servers，外加 83 条实用技巧、10 多个可直接 fork 的工作流示例。
+  - 把 Claude Code 这套体系第一次系统化讲完，市面上零散教程很多，能成体系的不多。
+  - 用法：clone 下来当字典翻，需要哪个场景的工作流直接抄。
+  - MIT 协议，最新 v2.1.161（5.6 万 Star）。
 - [claude-howto](https://github.com/luongnv89/claude-howto)
 
 #### 接入
@@ -160,7 +162,9 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 
 跨 AI 编码工具复用的记忆系统、知识图谱与上下文压缩工具。
 
-- [claude-mem](https://github.com/thedotmack/claude-mem)：自动捕捉编程会话中的所有操作，用 AI 压缩，并在未来会话注入相关上下文；同时支持 Claude Code 与其他 AI 编码工具。
+- [claude-mem](https://github.com/thedotmack/claude-mem) ⭐：给 Claude Code 加跨 session 持久记忆，自动捕捉每次会话中的工具调用与文件修改、生成语义摘要，下次开新窗口时把相关上下文重新注入。
+  - 适合：长期维护单个大项目的人，隔几天回来 Claude 不再完全失忆。
+  - 不适合：每天换新项目、做一次性脚本的人——加了反而是负担。
 - [context-mode](https://github.com/mksglu/context-mode)：AI 编码代理的上下文窗口优化。
   - **沙盒隔离**：沙盒工具将原始数据排除在上下文窗口外。
   - **会话存档**：SQLite 记录每次文件改动、命令执行、错误。
@@ -196,8 +200,6 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 
 **Token 压缩**
 
-- [caveman](https://github.com/JuliusBrussee/caveman)：AI 输出砍半，Token 费用可降 75%；4 种强度模式（Lite / Full / Ultra / 文言文）。
+- [caveman](https://github.com/JuliusBrussee/caveman)：让 Claude 像"穴居人"一样说话省 token 的输出风格覆写，4 种强度模式（Lite / Full / Ultra / 文言文）。
 - [rtk](https://github.com/rtk-ai/rtk)：高性能 CLI 代理，智能过滤与压缩命令输出，可省 60% 到 90% Token。
-
-<br />
 

@@ -15,6 +15,7 @@
 - [ClawHub](https://clawhub.ai/)：社区驱动的 Skills 与 Plugins 市场，强调搜索、安装和创作者发布，适合补充找长尾工具。
 - [SkillsLLM](https://skillsllm.com/)：面向 Claude Code、Codex CLI、ChatGPT 等工具的 AI Skills 聚合站，带分类、趋势和项目详情页。
 - [SkillsMP](https://skillsmp.com/)：基于开放 `SKILL.md` 生态的技能搜索市场，支持按职业、类别和语义搜索大规模技能库。
+- [awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)：Composio 维护的 Claude Skills 精选目录，收录 1000+ 场景化 Skill。
 
 ## 技能入口与发现
 
@@ -51,7 +52,7 @@
 - [get-shit-done](https://github.com/gsd-build/get-shit-done)：规格驱动开发与上下文工程工作流，把大任务拆成多个小计划分上下文执行。
   - `/gsd-map-codebase`：扫描并索引当前代码库状态。
   - `/gsd-new-project`：基于当前上下文创建新的 GSD 规划结构。
-- [gstack](https://github.com/garrytan/gstack)：一套 AI 工程工作流工具集，把 Claude Code 变成更完整的工程团队。
+- [gstack](https://github.com/garrytan/gstack)：Y Combinator 总裁 Garry Tan 出品，23 个 Skill + 8 个工具，模拟 20 人团队（CEO、设计师、QA、发布经理、文档工程师等）把 Claude Code 变成完整工程团队。
   - `/office-hours`：先把产品方向和需求边界问清楚。
   - `/plan-ceo-review`：从商业和产品视角砍掉无效需求，锁定最小可行版本。
   - `/plan-eng-review`：锁定技术架构、数据流和接口契约，输出完整技术方案。
@@ -93,10 +94,10 @@
     ```
   - 核心是双文件夹模型：`specs/` 作为当前系统事实来源，`changes/` 记录每次变更的完整提案。
   - 注意：规范在构建过程中生成，目前不适合直接套在已有代码库上。
-- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)：把资深工程师的工作习惯拆成可组合技能，要求 AI 每一步按规范执行。
-  - 7 个斜杠命令对应 7 个开发阶段（DEFINE → PLAN → BUILD → VERIFY → REVIEW → SHIP）。
-  - 内置“反合理化表”，防止 AI 以各种借口跳步。
-  - 每个技能都要求可验证证据，比如测试通过或构建输出。
+- [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)：把资深工程师的工作习惯拆成 23 个可组合 Skill，覆盖 spec、planning、build、review、ship 完整开发生命周期。
+  - 7 个核心斜杠命令对应 7 个开发阶段（DEFINE → PLAN → BUILD → VERIFY → REVIEW → SHIP）。
+  - 内置「反合理化表」，把”我稍后再加测试”等借口逐条反驳，防止 AI 默认偷懒走最短路径。
+  - 每个技能都要求可验证证据（测试通过、构建输出等），不靠 AI 自述。
 
 ### 工程规范与架构
 
@@ -249,3 +250,4 @@
 
 - [self-improving-agent](https://clawhub.ai/pskoett/self-improving-agent)：一套分层记忆系统。
 - [Self-Improving](https://clawhub.ai/ivangdavila/self-improving)：一套分层记忆系统。
+
