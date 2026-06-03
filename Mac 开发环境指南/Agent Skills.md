@@ -176,6 +176,11 @@
 - [browserbase/skills](https://github.com/browserbase/skills)：操控真实浏览器的 Skills 集合。
   - `/autobrowse`：自改进浏览技能。
   - `/ui-test`：对抗性 UI 测试。
+- [browser-act/skills](https://github.com/browser-act/skills) ⭐：面向 AI Agent 的浏览器自动化 CLI，专门补 Playwright / Chrome DevTools 在真实互联网场景里"反检测、验证码、Session 管理、人机协作"这一层基础设施的缺口。
+  - `browser-act` CLI：实时浏览器控制，适合一次性任务。
+  - `browser-act-skill-forge`：网站能力锻造器，把网站操作封装成可复用 Skill（生成 `SKILL.md` + Python 脚本包）。
+  - 三种浏览器模式：`Stealth` \*\*\*\*定制 Chromium + 独立指纹 + 动态代理，`Chrome`复用已有登录态，`Chrome-Direct`通过 CDP 直连当前浏览器
+  - 反爬与验证码、人机接力、多账号隔离
 
 ### 外部平台操作
 

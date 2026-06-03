@@ -153,6 +153,7 @@
 - [openhare](https://github.com/sjjian/openhare)：AI 驱动的桌面 SQL 客户端，跨平台，使用 Flutter 构建。
 - [RedisME](https://www.hepengju.com/zh/)：Redis 图形化客户端，适合日常查看、编辑和管理 Redis 数据。
 - [TinyRDM](https://github.com/tiny-craft/tiny-rdm)：轻量 Redis 桌面客户端，适合本地和远程 Redis 连接管理。
+- [DBX](https://github.com/t8y2/dbx) ⭐：Tauri 2 + Vue 3 + Rust 编写的跨平台数据库管理工具，安装包约 15MB、内存约 80MB。
 
 ### **Markdown 写作**
 

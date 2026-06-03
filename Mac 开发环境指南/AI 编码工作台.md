@@ -109,6 +109,7 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
   - IDE 插件（VS Code / Cursor / Windsurf）：[developers.openai.com/codex/ide](https://developers.openai.com/codex/ide)
   - 云端 Web：[chatgpt.com/codex](https://chatgpt.com/codex)
 - **文档入口**：[developers.openai.com/codex](https://developers.openai.com/codex)
+- **桌面端增强**：[CodexPlusPlus](https://github.com/BigPizzaV3/CodexPlusPlus)——外部 launcher + Chromium DevTools Protocol 注入，不修改 Codex 原始 `app.asar`；API Key 登录模式下强制解锁 Codex 原生插件入口，支持切回官方 ChatGPT 登录态。
 
 ### OpenCode
 
@@ -130,6 +131,28 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 - **Multi-session**：并行启动多个 Agent 处理独立任务，适合多分支并行开发。
 - **Share links**：会话生成可分享链接，方便协作调试。
 - **Any editor**：终端、桌面 App、IDE 插件均可用。
+
+### oh-my-pi (omp)
+
+终端 AI 编程 Agent，定位 "A coding agent with the IDE wired in"——把 LSP、真实调试器、Hashline 编辑、子代理等 IDE 级能力都接进 shell，不必在 IDE 侧边栏和终端之间来回切。
+
+- 官方仓库：[can1357/oh-my-pi](https://github.com/can1357/oh-my-pi)
+- 官网：[omp.sh](https://omp.sh)
+
+#### Hashline 编辑
+
+- 读文件时给每行附一个 2–3 字符的 SHA 哈希标签，编辑引用锚点即可，不必整段重写原文。
+- 解决 diff/patch 在缩进、空白上的匹配失败问题，并发改同一文件时也更稳。
+
+#### LSP / DAP 真实集成
+
+- **LSP**：rename、跳转定义、诊断走真实 Language Server（如 `formatBytes` → `formatFileSize`，barrel 重导出、别名 import 一并更新），不是模型自己猜引用。
+- **DAP**：lldb（C/C++/Rust）、dlv（Go goroutine 栈）、debugpy（Python）真实调试器，attach 进程断点 + inspect 变量，不靠 print 调试。
+
+#### TTSR（Time-Traveling Stream Rules）
+
+- 规则平时不占 context，模型输出流匹配到正则触发器才截断、注入提醒并从同一点重生成。
+- 注入的规则在上下文压缩后仍然有效，适合"生产代码别用 `Box::leak`"这类守卫——平时不打扰，触发时精确拦截。
 
 ## AI 设计与辅助工具
 
@@ -162,6 +185,10 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 
 跨 AI 编码工具复用的记忆系统、知识图谱与上下文压缩工具。
 
+- [supermemory](https://github.com/supermemoryai/supermemory) ⭐：AI 时代的记忆与上下文引擎，定位大模型的记忆层，三大主流 benchmark 全部第一，超越 Mem0、Zep。
+  - 核心机制：从对话自动抽取事实、追踪时间线、矛盾消解、自动过期遗忘（"我明天有考试"到期自动消失；"搬到 SF"覆盖"住在 NYC"）。
+  - 与传统记忆库差异：Mem0 / Zep 仍是向量检索存文档片段；supermemory 理解事实级别，能识别信息优先级与时效性。
+  - 用户画像 + 混合搜索：一次调用 \~50ms 返回静态事实 + 动态上下文，RAG 与 Memory 一体化召回。
 - [claude-mem](https://github.com/thedotmack/claude-mem) ⭐：给 Claude Code 加跨 session 持久记忆，自动捕捉每次会话中的工具调用与文件修改、生成语义摘要，下次开新窗口时把相关上下文重新注入。
   - 适合：长期维护单个大项目的人，隔几天回来 Claude 不再完全失忆。
   - 不适合：每天换新项目、做一次性脚本的人——加了反而是负担。
@@ -202,4 +229,3 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 
 - [caveman](https://github.com/JuliusBrussee/caveman)：让 Claude 像"穴居人"一样说话省 token 的输出风格覆写，4 种强度模式（Lite / Full / Ultra / 文言文）。
 - [rtk](https://github.com/rtk-ai/rtk)：高性能 CLI 代理，智能过滤与压缩命令输出，可省 60% 到 90% Token。
-
