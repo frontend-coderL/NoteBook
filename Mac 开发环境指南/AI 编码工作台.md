@@ -1,22 +1,15 @@
 ## 管理与接入工具
 
-### cc-switch
-
-跨平台桌面一体化工具，统一管理多个 AI 编码 CLI（Claude Code、Codex、OpenCode、OpenClaw、Gemini CLI 等）的安装、配置、Provider 切换与启动。
-
-- **官方仓库**：[farion1231/cc-switch](https://github.com/farion1231/cc-switch) ⭐（8.9 万 Star）
-
-**核心能力**
-
-- **多 CLI 统一管理**：在同一个 GUI 里装、卸、切换 Claude Code / Codex / OpenCode / OpenClaw / Gemini CLI 等七个主流客户端。
-- **Provider 切换**：内置多家 API / 中转服务商（官方、第三方代理、自建中转），一键切换当前激活的 Provider，免改环境变量。
-- **配置集中化**：CLI 的 config / auth / MCP 配置文件统一管理，避免散落在多个目录。
-
-### CLIProxyAPI
-
-面向 CLI 的代理服务器，为多种 AI 编码 CLI 提供统一的兼容接口、中转转发与本地代理能力。
-
-- [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)：提供 OpenAI、Gemini、Claude、Codex、Grok 兼容 API，也支持 Claude Code 与 Codex 的 OAuth 接入。
+- [cc-switch](https://github.com/farion1231/cc-switch) ⭐：跨平台桌面一体化工具，统一管理多个 AI 编码 CLI（Claude Code、Codex、OpenCode、OpenClaw、Gemini CLI 等）的安装、配置、Provider 切换与启动。
+  - 多 CLI 统一管理：在同一个 GUI 里装、卸、切换 7 个主流客户端。
+  - Provider 切换：内置多家 API / 中转服务商（官方、第三方代理、自建中转），一键切换当前激活的 Provider，免改环境变量。
+  - 配置集中化：CLI 的 config / auth / MCP 配置文件统一管理，避免散落在多个目录。
+- [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)：面向 CLI 的代理服务器，为多种 AI 编码 CLI 提供统一的兼容接口、中转转发与本地代理能力；提供 OpenAI、Gemini、Claude、Codex、Grok 兼容 API，也支持 Claude Code 与 Codex 的 OAuth 接入。
+- [9router](https://github.com/decolua/9router)：本地 OpenAI 兼容反向代理网关，把 Claude Code / Codex / Cursor / Copilot 等 CLI 统一路由到 40+ AI 提供商。
+  - 智能路由：三级回退（订阅 → 廉价 → 免费）、多账号轮询、quota 实时追踪与自动 token 刷新。
+  - 格式互转：OpenAI ↔ Claude ↔ Gemini ↔ Cursor ↔ Kiro ↔ Vertex ↔ Ollama 等。
+  - 减负能力：集成 RTK 工具输出压缩（省 20–40% 输入 token）与 Caveman 模式（省高达 65% 输出 token）。
+  - 适合：订阅撞额度、需要 24/7 稳定编程体验、多模型切换频繁的重度用户。
 
 ## AI 编码工具
 
@@ -160,14 +153,14 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 
 开源 Claude Design 替代品，把 Prompt 直接转成可交付的设计产物（原型 / 幻灯片 / PDF）。
 
-- **官方仓库**：[OpenCoworkAI/open-codesign](https://github.com/OpenCoworkAI/open-codesign)
+- 官方仓库：[OpenCoworkAI/open-codesign](https://github.com/OpenCoworkAI/open-codesign)
 
 #### 核心特性
 
-- **多模型支持**：Claude、GPT、Gemini、Kimi、GLM、Ollama 自带模型皆可，亦支持 BYOK（自带 API Key）。
-- **本地优先**：MIT 协议，代码可在本地跑。
-- **一键导入 API Key**：复用已有的 Claude Code / Codex 凭证，免重复配置。
-- **多场景输出**：同一个 Prompt 可出网页原型、演示幻灯片、PDF 文档。
+- 多模型支持：Claude、GPT、Gemini、Kimi、GLM、Ollama 自带模型皆可，亦支持 BYOK（自带 API Key）。
+- 本地优先：MIT 协议，代码可在本地跑。
+- 一键导入 API Key：复用已有的 Claude Code / Codex 凭证，免重复配置。
+- 多场景输出：同一个 Prompt 可出网页原型、演示幻灯片、PDF 文档。
 
 ## 通用基础设施
 
@@ -229,3 +222,4 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 
 - [caveman](https://github.com/JuliusBrussee/caveman)：让 Claude 像"穴居人"一样说话省 token 的输出风格覆写，4 种强度模式（Lite / Full / Ultra / 文言文）。
 - [rtk](https://github.com/rtk-ai/rtk)：高性能 CLI 代理，智能过滤与压缩命令输出，可省 60% 到 90% Token。
+

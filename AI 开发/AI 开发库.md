@@ -5,6 +5,11 @@
 - [openai-agents-python](https://github.com/openai/openai-agents-python) ⭐：多代理工作流框架，26.7k Star，支持 OpenAI API 及 100+ 其他 LLM。
   - 核心能力：Agent 配置（指令/工具/护栏）、Sandbox Agent 容器化执行、MCP/函数/托管工具、输入输出验证、人机协作、内置追踪调试。
   - 适合：需要多 Agent 协作和复杂工具调用的项目。
+- [TradingAgents](https://github.com/TauricResearch/TradingAgents)：TauricResearch 出品的多智能体 LLM 金融交易框架，模拟真实交易公司协作。
+  - 角色分工：基本面 / 情绪 / 新闻 / 技术四类分析师 + 看涨 / 看跌研究员结构化辩论 + 交易员 + 风控 / 投资组合经理。
+  - 决策闭环：从分析、辩论到下单与风控审批形成完整链路，决策日志持久化、检查点可恢复。
+  - 多模型支持：兼容 OpenAI / Anthropic / Google / xAI / DeepSeek / Qwen / GLM / Ollama 等，基于 LangGraph 构建。
+  - 注意：官方明确声明"for research only"，不构成投资建议。
 
 ### 文档处理
 

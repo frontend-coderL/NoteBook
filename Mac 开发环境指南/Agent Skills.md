@@ -68,6 +68,11 @@
   - 安全沙箱：文件/命令/网络操作单独配置允许/拒绝/询问策略。
   - 性能仪表板：记录 Function 调用耗时和 Token 消耗热力图。
   - 使用：`/planner`
+- [ruflo](https://github.com/ruvnet/ruflo)：面向 Claude Code / Codex 的多智能体 AI 编排框架（meta-harness），在单 agent 之上叠加集群协调。
+  - 集群拓扑：hierarchical / mesh / adaptive 三种拓扑，配套 Raft / Byzantine / Gossip 共识算法。
+  - 自学习记忆：SONA + ReasoningBank + HNSW 向量库 AgentDB，跨会话沉淀经验。
+  - 联邦通信：mTLS + ed25519 + PII 脱敏的零信任跨机通信，适合多机 / 多组织协作。
+  - 配套：Web UI（flo.ruv.io）、GOAP 目标规划器、插件市场、本地 LLM 路由（Ollama）。
 
 ### Spec / Plan 驱动开发
 
