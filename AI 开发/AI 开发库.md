@@ -16,6 +16,8 @@
 - [markitdown](https://github.com/microsoft/markitdown) ⭐：AutoGen Team 出品，127k Star，PDF/Office/图片/音频等转 Markdown。
   - 支持：PDF、PPT、Word、Excel、图片（OCR）、音频（转录）、HTML、CSV、ZIP、YouTube 等。
   - 特点：保留文档结构（标题/列表/表格/链接），CLI + Python API，插件可扩展。
+  - LLM 增强：可传 `llm_client=OpenAI()` + `llm_model="gpt-4o"`，让 GPT-4o Vision 自动解读图片内容；也可选接入 Azure Document Intelligence / Content Understanding 提升解析质量。
+  - 按需安装：`pip install 'markitdown[pdf, docx, pptx]'` 按文件类型选装依赖，节省空间。
   - 对比 marker：更轻量专注结构保留，非高保真转换场景。
 
 - [marker](https://github.com/datalab-to/marker)：PDF 转 Markdown/JSON，35.5k Star，基于深度学习模型管道。
