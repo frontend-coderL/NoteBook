@@ -14,11 +14,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 NoteBook/
 ├── Mac 开发环境指南/         # Mac 装机与开发环境配置
 │   ├── Agent Skills.md        # Agent Skills 配置与使用
-│   ├── Claude Code.md        # Claude Code 配置、插件
+│   ├── AI 工具集.md           # 主流 AI 编程工具（Claude Code / Codex / OpenCode 等）及辅助工具
 │   ├── Mac 效率与工具.md       # 系统效率配置与常用软件推荐
 │   ├── Mac 终端配置.md        # zsh / 终端环境
 │   ├── 编程语言管理.md         # Node / Python 等版本管理（nvm、uv 等）
 │   └── Github 优秀开源项目.md  # 收藏的开源项目
+├── AI 开发/                  # AI / LLM 工具与开发资源
+│   └── AI 开发库.md           # 构建 AI 应用所需的库与框架（Agent 框架、文档处理等）
 └── 前端开发/
     ├── 前端生态库推荐.md       # 按领域分类的前端库清单
     └── 前端基础能力/           # 通用代码封装范式
@@ -27,6 +29,8 @@ NoteBook/
         ├── Vue 国际化处理.md
         └── 文件处理.md
 ```
+
+> 同级还有 `AGENTS.md`，是给 Codex 用的「姊妹文件」。两份文件应保持约定一致——修改本文件后，记得同步 `AGENTS.md`。
 
 ## 笔记写作约定
 
