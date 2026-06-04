@@ -4,6 +4,10 @@
   - 多 CLI 统一管理：在同一个 GUI 里装、卸、切换 7 个主流客户端。
   - Provider 切换：内置多家 API / 中转服务商（官方、第三方代理、自建中转），一键切换当前激活的 Provider，免改环境变量。
   - 配置集中化：CLI 的 config / auth / MCP 配置文件统一管理，避免散落在多个目录。
+- [EchoBird](https://github.com/edison7009/EchoBird)：面向 AI 用户的桌面管理工具，集 Agent 安装、模型管理、本地大模型、应用管理于一体，适合小白快速上手。
+  - Model Nexus：统一模型数据中心，OpenAI / Anthropic / DeepSeek / Ollama 等一处配置，四大场景立即生效。
+  - 安装与修复 Agent：让 AI 帮你装 Claude Code、OpenClaw、Hermes Agent 等主流工具，本地与远程都支持。
+  - 应用管理：一键启动并管理所有 AI / Agent 应用与游戏。
 - [CLIProxyAPI](https://github.com/router-for-me/CLIProxyAPI)：面向 CLI 的代理服务器，为多种 AI 编码 CLI 提供统一的兼容接口、中转转发与本地代理能力；提供 OpenAI、Gemini、Claude、Codex、Grok 兼容 API，也支持 Claude Code 与 Codex 的 OAuth 接入。
 - [9router](https://github.com/decolua/9router)：本地 OpenAI 兼容反向代理网关，把 Claude Code / Codex / Cursor / Copilot 等 CLI 统一路由到 40+ AI 提供商。
   - 智能路由：三级回退（订阅 → 廉价 → 免费）、多账号轮询、quota 实时追踪与自动 token 刷新。
@@ -82,7 +86,6 @@ your-project/
 │       └── security.md     # 安全要求
 ```
 
-- [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)：一组受流行品牌设计系统启发的 `DESIGN.md` 文件合集，把一个设计约束插件放进项目，让编码代理生成更匹配的界面。
 - 技能清单见 [Agent Skills.md](file:///Users/zhonglvshiqi/Desktop/NoteBook/Mac%20开发环境指南/Agent%20Skills.md)。
 
 #### Claude 专属周边
@@ -174,9 +177,9 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 - [supabase-mcp](https://github.com/supabase-community/supabase-mcp)：将 Supabase 连接到 AI 助手，用中文问数据库问题。
 - [publora/mcp-server](https://github.com/publora/mcp-server)：通过 Claude、Cursor 等 AI 助手控制社交媒体日程，一条指令多平台发布。
 
-### 记忆 / 图谱 / 压缩
+### 记忆系统
 
-跨 AI 编码工具复用的记忆系统、知识图谱与上下文压缩工具。
+跨 AI 编码工具复用的记忆系统，让 Agent 跨 session 保留项目知识。
 
 - [supermemory](https://github.com/supermemoryai/supermemory) ⭐：AI 时代的记忆与上下文引擎，定位大模型的记忆层，三大主流 benchmark 全部第一，超越 Mem0、Zep。
   - 核心机制：从对话自动抽取事实、追踪时间线、矛盾消解、自动过期遗忘（"我明天有考试"到期自动消失；"搬到 SF"覆盖"住在 NYC"）。
@@ -185,14 +188,9 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 - [claude-mem](https://github.com/thedotmack/claude-mem) ⭐：给 Claude Code 加跨 session 持久记忆，自动捕捉每次会话中的工具调用与文件修改、生成语义摘要，下次开新窗口时把相关上下文重新注入。
   - 适合：长期维护单个大项目的人，隔几天回来 Claude 不再完全失忆。
   - 不适合：每天换新项目、做一次性脚本的人——加了反而是负担。
-- [context-mode](https://github.com/mksglu/context-mode)：AI 编码代理的上下文窗口优化。
-  - **沙盒隔离**：沙盒工具将原始数据排除在上下文窗口外。
-  - **会话存档**：SQLite 记录每次文件改动、命令执行、错误。
-  - **代码思维**：不读 50 个文件到上下文，而是写脚本计数并 `console.log` 结果。
-  - 使用：`/context-mode:ctx-purge`（清空索引）、`/context-mode:ctx-insight`（本地仪表盘）。
 - [MemOS](https://github.com/MemTensor/MemOS)：面向 LLM 和代理系统的 AI 内存操作系统（moltbot、clawdbot、openclaw），实现持久技能内存，支持跨任务技能的重用和演进。
 - [mempalace](https://github.com/MemPalace/mempalace)：最佳基准测试的开源 AI 记忆系统。
-- [OpenViking](https://github.com/volcengine/OpenViking)：专为 AI 智能体设计的开源上下文数据库，用“文件系统范式”统一组织记忆、资源和技能。
+- [OpenViking](https://github.com/volcengine/OpenViking)：专为 AI 智能体设计的开源上下文数据库，用"文件系统范式"统一组织记忆、资源和技能。
   - [Claude Code 记忆插件](https://github.com/volcengine/OpenViking/blob/main/examples/claude-code-memory-plugin/README.md)
 - [agentmemory](https://github.com/rohitg00/agentmemory)：基于 iii-engine 的持久化记忆系统。
   - **跨 Agent 共享**：Claude Code、Cursor、OpenClaw 都支持。
@@ -200,26 +198,43 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
   - **MCP 协议**：任何支持 MCP 的客户端都能接入。
   - **知识图谱**：支持实体关系，不只是文本。
 - [Beads](https://github.com/gastownhall/beads)：为编码代理提供持久的结构化内存，用依赖感知图取代混乱的标记列表，通过 Dolt（版本控制 SQL 数据库）存项目任务、依赖、进度。
+
+### 代码知识图谱
+
+把代码库索引为可查询的知识图谱，让 Agent 更快理解代码结构和依赖关系。
+
 - [graphify](https://github.com/safishamsi/graphify)：把任意包含代码、文档、论文、图片或视频的文件夹变成可查询的知识图谱。
   - 适用：接手缺乏文档的祖传项目；将零散技术文档、会议记录与代码库强关联，构建团队级知识底座。
 - [GitNexus](https://github.com/abhigyanpatwari/GitNexus)：把代码库索引为完整知识图谱，Tree-sitter 解析 AST，再用 KuzuDB 存依赖关系。
   - 一条命令 `npx gitnexus analyze` 完成索引、安装 skill、注册 Claude Code hooks、生成 `AGENTS.md` / `CLAUDE.md`。
   - 14 种语言支持。商业授权另算。
-  - 适用：几十万行的巨石应用或 Monorepo，重构前评估“牵一发而动全身”的破坏力。
+  - 适用：几十万行的巨石应用或 Monorepo，重构前评估"牵一发而动全身"的破坏力。
 - [Understand-Anything](https://github.com/Lum1104/Understand-Anything)：多智能体 + 知识图谱，将代码库转为可探索、可搜索、可问答的交互式图谱。
   - 核心：交互式 Dashboard、影响分析、导览路线、模糊语义搜索、架构层可视化。
-  - 3 分钟生成初始图谱；Tree-sitter + LLM 架构；中英日韩 6 种语言。
+  - 架构：Tree-sitter（确定性结构分析）+ LLM（语义摘要 / 标签 / 架构分层），5+1 专用 Agent 流水线，支持增量更新（`/understand --auto-update`）。
   - 适合：新人入职理解大代码库、接手遗留项目、团队知识共享、架构 review 可视化。
   - 注意：10 万行以上代码库首次初始化建议在空闲时段运行；Token 消耗较高。
 - [CodeGraph](https://github.com/colbymchenry/codegraph)：AI 编码工具的缓存层，把代码库建成可查询的知识图谱，降低 Token 消耗。
   - 懒加载索引、熵值监控、MCP 异步支持。
   - 适合：大型代码库维护者、AI 编码工具重度用户、技术债管理。
+- [Serena](https://github.com/oraios/serena) ⭐：给 AI Agent 提供 IDE 级语义能力的 MCP 工具包，符号级代码检索、编辑、重构与调试，支持 40+ 语言。
+  - 核心能力：符号查找与引用、跨文件重命名、符号体替换、文件大纲、诊断检查、记忆管理。
+  - 双后端：LSP（免费，40+ 语言）/ JetBrains 插件（付费，更强重构与调试能力）。
+  - 安装：`uv tool install -p 3.13 serena-agent` → `serena init`，支持 Claude Code / Codex / Cursor / VS Code 等。
+  - 适合：大型代码库中让 Agent 像资深开发者一样精准导航和编辑代码。
 - [code-review-graph](https://github.com/tirth8205/code-review-graph)：基于 Tree-sitter 的增量式代码知识图谱，6.8 倍到 49 倍 Token 削减。
   - 注意：需要 Python 3.10+；首次建图时间较长；Claude Code 用户安装后需重启生效；不是所有语言都完美支持。
   - 适用：日常业务开发、频繁修 Bug 和提 PR。
 
-**Token 压缩**
+### 上下文与 Token 压缩
 
+优化上下文窗口使用、压缩命令输出，降低 Token 消耗。
+
+- [context-mode](https://github.com/mksglu/context-mode)：AI 编码代理的上下文窗口优化。
+  - **沙箱隔离**：沙箱工具将原始数据排除在上下文窗口外。
+  - **会话存档**：SQLite 记录每次文件改动、命令执行、错误。
+  - **代码思维**：不读 50 个文件到上下文，而是写脚本计数并 `console.log` 结果。
+  - 使用：`/context-mode:ctx-purge`（清空索引）、`/context-mode:ctx-insight`（本地仪表盘）。
 - [caveman](https://github.com/JuliusBrussee/caveman)：让 Claude 像"穴居人"一样说话省 token 的输出风格覆写，4 种强度模式（Lite / Full / Ultra / 文言文）。
 - [rtk](https://github.com/rtk-ai/rtk)：高性能 CLI 代理，智能过滤与压缩命令输出，可省 60% 到 90% Token。
 

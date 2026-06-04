@@ -39,7 +39,7 @@
 ### Agent 框架
 
 - [Pi (earendil-works)](https://github.com/earendil-works/pi) ⭐：AI Agent 全栈工具箱，56.8k Star，统一 OpenAI/Anthropic/Google 等多模型 API，支持 CLI 和 SDK 两种集成方式。
-  - `pi-coding-agent`：终端编码 Agent CLI。
+  - `pi-coding-agent`：终端编码 Agent CLI。核心设计哲学是「极简 + 可扩展」：只内置 4 个工具（read / write / edit / bash），其余能力靠 TypeScript 扩展按需加载；会话以 JSONL 树状结构管理（`/tree` `/fork` 任意节点分支，不丢历史路径）。
   - `pi-agent-core`：运行时核心，工具调用与状态管理，可集成到其他应用。
   - `pi-ai`：统一 LLM API，流式输出 + 工具调用定义。
   - `pi-tui`：终端 UI 库，差分渲染。

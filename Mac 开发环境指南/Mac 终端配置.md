@@ -318,6 +318,20 @@ plugins=(git sudo z zsh-autosuggestions zsh-syntax-highlighting)
     source ~/.zshrc
     ```
 
+### 4.5 [Yazi](https://github.com/sxyazi/yazi)
+
+- 作用：Rust 编写的终端文件管理器，全异步 I/O，启动约 1ms，二进制 5MB，38.6k Star。
+- 安装：`brew install yazi`
+- 核心能力：
+    - 全异步非阻塞 I/O，读文件 / 渲染 / 输入并行不互斥
+    - 文件预加载：光标移到时即预读图片解码、语法高亮、文件类型识别
+    - 内联预览：图片、PDF、视频缩略图（需终端支持：kitty / iTerm2 / WezTerm / Ghostty）
+    - Vim 风格按键：j/k 移动、l 进入、h 返回、空格选中、y 复制、p 粘贴
+    - 内置集成：ripgrep 搜索、fd 查找、fzf 模糊搜索、zoxide 快速跳转
+    - 支持拖放文件、批量重命名、一键解压、Lua 插件系统
+    - 主题：`ya pack -a yazi-rs/flavors#catppuccin-mocha`
+- 同类对比：比 ranger（Python）快很多，比 lf（Go）功能更全，比 nnn（C）学习曲线更友好。
+
 # **6 后续**
 
 - zsh 优化（性能 + 启动速度）

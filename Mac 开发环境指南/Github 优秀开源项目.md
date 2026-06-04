@@ -9,9 +9,18 @@
   - 跨项目代码积累：前一个项目代码可复用，累积效果可见。
   - 缺陷数据库：常见问题与解决方案汇总，避免重复踩坑。
   - 适合：想系统学习 AI 工程的学生、转行者、需要快速培养团队 AI 能力的技术管理者。
+- [advanced-java](https://github.com/doocs/advanced-java)：Java 进阶知识库，82K Star，覆盖高并发、分布式、微服务、中间件等高阶技术，同时汇总大厂面试真题与解析，MIT 协议。
+  - 优势：贴合国内大厂技术体系与面试风格，中文讲解通俗易懂，持续迭代更新。
+  - 注意：偏知识汇总而非项目实战，适合查漏补缺和面试备考，不适合替代官方文档学习具体框架。
 
 ## Agent 与工作流
 
+- [12-factor-agents](https://github.com/humanlayer/12-factor-agents)：构建生产级 LLM 应用的 13 条工程化法则，21.9K Star，灵感来自经典 12-Factor App，每条都有 TypeScript / Python 双版本示例，Apache 2.0。
+  - 核心思想：代码管流程、LLM 管判断——别反过来。
+  - 优势：不绑定任何框架，拿来读的而非装的；覆盖控制流、提示词管理、错误自愈、人工介入等生产痛点。
+  - 注意：是方法论而非框架，不能 `pip install`，需自行按法则改造现有代码。
+  - 适合：想把 Agent 从 demo 带到生产环境的团队。
+- openai-agents-python：OpenAI Agents SDK 的 Python 实现，用于构建多代理工作流，支持 OpenAI Responses API、Chat Completions API 以及 100+ 其他大模型。
 - [DeepSeek-TUI](https://github.com/Hmbown/DeepSeek-TUI)：终端原生的 DeepSeek 编程智能体方案。
 - [hermes-agent](https://github.com/NousResearch/hermes-agent)：自我提升 AI 代理，强调从经验中积累技能、检索历史对话并持续优化自身行为。
 
@@ -23,6 +32,11 @@
 
 ## Web 自动化与采集
 
+- [Firecrawl](https://github.com/firecrawl/firecrawl)：专为 AI Agent 设计的 Web 数据提取工具，125k Star，提供 Search / Scrape / Crawl 三大能力，输出干净结构化 Markdown / JSON / HTML / 截图，LLM-Ready 无需二次清洗。
+  - 核心能力：智能渲染引擎（自动处理 JS 重度页面）、内置代理池 + 速率限制、支持 Actions（点击/滚动/输入/等待后再提取）、P95 延迟 3.4s、96% 网站覆盖率。
+  - 典型场景：AI 搜索应用实时数据源、Agent 自主浏览网页、竞品情报批量抓取、文档站全量 Crawl 转 Markdown 语料库。
+  - SDK：Python（`pip install firecrawl-py`）和 Node.js（`npm install @mendable/firecrawl-js`），配套 MCP Server 可接入 Claude Code / Cursor 等客户端。
+  - 注意：开源版覆盖核心抓取能力，云端版额外提供 Agent 级智能交互与高级反爬绕过；需注册获取 API Key。
 - [browser-use](https://github.com/browser-use/browser-use)：让 AI 代理更稳定地理解和操作网页，适合浏览器自动化任务。
   - 关键思路：把复杂网页转成 AI 更容易理解的编号化结构，让模型能像人一样观察页面后再执行动作。
 - [page-agent](https://github.com/alibaba/page-agent)：纯 JavaScript 实现的 GUI Agent，支持用自然语言操作 Web 应用。
@@ -31,6 +45,9 @@
   - 网站改版：解析器能记住元素特征，页面结构变化后自动重新定位目标节点。
   - 规模化采集：提供类似 Scrapy 的 Spider 框架，支持并发、暂停恢复、代理轮换与实时流式输出。
   - 反爬处理：内置 Cloudflare Turnstile 等常见反爬绕过能力，减少手动调参成本。
+- [CloakBrowser](https://github.com/CloakHQ/CloakBrowser)：隐身版 Chromium，源码级 33 处 C++ 指纹补丁，30/30 通过所有机器人检测测试，可作为 Playwright / Puppeteer 的直接替换。
+  - 定位：免费自托管的 Multilogin 替代方案，解决浏览器自动化被反爬检测拦截的问题。
+  - 适合：需要绕过反爬的爬虫与自动化场景、AI Agent 浏览器操作。
 - [maigret](https://github.com/soxoj/maigret)：通过用户名在 3000+ 网站上搜集目标人物档案的开源 OSINT 工具，无需 API Key，纯网页抓取。
   - 站点覆盖：默认扫描流量最高的 500 个站点，`-a` 全量；可按类别 / 国家过滤。
   - 递归搜索：根据发现的用户名和其他 ID 自动深挖关联账号。
@@ -56,3 +73,4 @@
   - 经济日历 AI 摘要：自动生成经济数据的市场预期和影响分析。
   - 夜间模式优化：适合长时间盯盘分析。
   - 适合：个人投资者、量化策略研究者、不愿支付 Bloomberg 月费的专业用户。
+

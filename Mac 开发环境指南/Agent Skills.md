@@ -140,6 +140,10 @@
   - `/imagegen-frontend-web`、`/imagegen-frontend-mobile`：生成设计参考图。
   - `/brandkit`：生成品牌板、字体和色彩方向图。
 - [frontend-dev](https://github.com/MiniMax-AI/skills/tree/main/skills/frontend-dev)：面向 React / Next.js 与 Tailwind 的前端生成技能，覆盖媒体资源、说服力文案和生成艺术场景。
+- [rico-skills](https://github.com/ricocc/rico-skills)：设计与资源方向的 Skills 集合，183 Star。
+  - `rico-design-md`：DESIGN.md 生成器，输入网站 URL 即可提取结构化设计规范（颜色 token、排版刻度、间距、圆角、阴影、组件状态），同时输出 DESIGN.md（开发参考）+ preview.html（可视化预览），支持多格式导出（tokens.json / variables.css / theme.css）和格式互转。
+  - 适合：分析优秀网站视觉语言、整理品牌规范、为 AI 编程提供明确设计规格。
+- [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)：一组受流行品牌设计系统启发的 `DESIGN.md` 文件合集，把设计约束文件放进项目，让编码代理生成更匹配的界面。
 
 ### 前端工程与框架实践
 
@@ -157,6 +161,9 @@
   - `/vercel-react-best-practices`：React 和 Next.js 性能优化指南。
 - [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills)：Next.js 专项技能集合。
   - `/next-best-practices`：Next.js 最佳实践。
+- [gsap-skills](https://github.com/greensock/gsap-skills)：GSAP 官方 AI Skill，8 个技能覆盖核心 API、Timeline、ScrollTrigger、插件、React / Vue / Svelte 集成、性能优化与工具函数。
+  - 技能清单：`gsap-core`、`gsap-timeline`、`gsap-scrolltrigger`、`gsap-plugins`、`gsap-utils`、`gsap-react`、`gsap-performance`、`gsap-frameworks`。
+  - 适用场景：官网类、营销页、滚动叙事动画、需要 AI 正确生成 GSAP 代码的项目。
 
 ### 测试、调试与网站体检
 
@@ -217,6 +224,12 @@
   - `/huashu-proofreading`：三遍审校降 AI 味，去除文本里的 AI 生成痕迹让措辞更自然。
 - [humanizer-zh](https://clawhub.ai/liuxy951129-cpu/humanizer-zh)：去除文本里的 AI 生成痕迹，让措辞更自然。
 - [knowledge-site-creator](https://github.com/joeseesun/qiaomu-knowledge-site-creator)：一句话生成任意领域的知识型网站。
+- [academic-research-skills](https://github.com/Imbad0202/academic-research-skills)：学术研究全流程技能，覆盖 research → write → review → revise → finalize，让 Claude Code 按标准流程产出学术论文。
+  - 支持 Claude Code / Codex / VS Code / JetBrains。
+  - 适合：科研人员、在校学生、需要英文学术写作的开发者。
+- [scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills)：141 个科研领域 Agent Skill，覆盖癌症基因组学、药物发现、分子动力学、单细胞分析、科学计算、金融研究、学术写作等，让 Agent 按标准流程执行文献搜索、计算验证等科研工作流。
+  - 支持工具：Scanpy、RDKit、DeepChem、UniProt、AlphaFold 等专业工具链的精确 API 调用。
+  - 适合：学术研究、生物信息学、药物发现、数据密集型分析、跨领域科研项目。
 
 ### 演示、图表与可视化表达
 
@@ -234,8 +247,9 @@
 - [guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill)：生成单文件 HTML 横向翻页 PPT，视觉风格偏”电子杂志 × 电子墨水”。
   - 合适：线下分享、行业内部讲话、私享会、AI 产品发布、demo day。
   - 不合适：大段表格数据、培训课件、多人协作编辑。
-- [Kami](https://github.com/tw93/Kami)：让 AI 生成的文档具备更完整的排版表达。
-  - 支持一页纸报告、研究报告、正式信函、个人展示、简历、演示幻灯片等文档类型。
+- [Kami](https://github.com/tw93/Kami)：AI 时代的文档排版约束系统，通过十条不变量（羊皮纸底色、墨蓝单一强调色、衬线体层级、禁止冷灰和硬阴影等）约束 AI 输出稳定统一的排版风格。
+  - 14 种内联 SVG 图表：架构图、流程图、象限图、柱状图、折线图、环形图、状态机、时间线等，纯 HTML + SVG，不依赖 Mermaid / JS。
+  - 渲染路径：HTML 模板通过 WeasyPrint 转 PDF，幻灯片通过 python-pptx 生成 PPTX，本地一条命令出结果。
 - [html-ppt-skill](https://github.com/lewislulu/html-ppt-skill)：HTML PPT Studio，提供多主题、多布局和动画能力。
 - [open-slide](https://github.com/1weiho/open-slide)：专为 AI 智能体设计的幻灯片框架，可通过自然语言一键生成 PPT。
 - [html-anything](https://github.com/nexu-io/html-anything)：调用本地 AI 编码 CLI 生成专业级单文件 HTML，75 套模板覆盖小红书卡片、演示文稿、办公文档、数据报告、视频帧脚本等 9 大场景。

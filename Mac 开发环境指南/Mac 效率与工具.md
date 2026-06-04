@@ -67,6 +67,7 @@
   - 特点：简单易用，适合只需要基础历史记录的用户。
 - [PasteMemo](https://www.lifedever.com/PasteMemo/)：轻量级原生 macOS 剪贴板管理器，常驻菜单栏，自动记录复制内容并支持快速检索。
   - 仓库：[PasteMemo-app](https://github.com/lifedever/PasteMemo-app)。
+- [Maccy](https://github.com/p0deje/Maccy)：开源剪贴板历史管理工具，`Command+Shift+V` 调出历史面板，支持搜索、固定常用条目和按类型过滤。
 
 ### **截图与录屏**
 
@@ -83,6 +84,7 @@
 
 - [Magnet](https://magnet.crowdcafe.com) ⭐：窗口分屏与管理工具，支持快捷键快速将窗口排列到屏幕不同区域。
   - 特点：高效窗口布局工具，适合多任务办公场景。
+- [Rectangle](https://github.com/rxhanson/Rectangle)：开源免费的窗口管理工具，快捷键逻辑类似 Windows 的 Win+方向键，支持半屏、三分屏、四分屏及多显示器间移动窗口。
 
 ***
 
@@ -97,6 +99,7 @@
   - 特点：适合不想付费、只需要基础隐藏功能的用户。
 - [Ice](https://github.com/jordanbaird/Ice)：用于隐藏并整理菜单栏图标的管理工具。
 - [Itsycal](https://github.com/sfsam/Itsycal/tree/master) ⭐：状态栏日历与时间小组件，适合替换系统默认时间显示。
+- [Hidden Bar](https://github.com/dwarvesf/hidden)：免费开源的菜单栏图标折叠工具，点击小箭头即可隐藏/展开不常用图标，对大多数人够用。
 
 ### **显示与桌面**
 
@@ -104,11 +107,13 @@
 - [DockDoor](https://github.com/ejbills/DockDoor)：为 macOS 提供窗口预览、`Alt-Tab` 风格切换等增强能力。
 - [SuperIsland](https://github.com/shobhit99/SuperIsland)：将 MacBook 刘海区域改造成可展示信息和交互的小面板。
 - [Cadran](https://cadranapp.com/)：在桌面壁纸和屏幕保护程序上显示多种可自定义时钟表盘。
+- [MonitorControl](https://github.com/monitorcontrol/monitorcontrol)：通过 DDC/CI 协议让键盘亮度键直接控制外接显示器的亮度和音量，体验与内置屏幕一致。
+  - 注意：显示器需支持 DDC/CI 协议，绝大多数品牌显示器支持。
+- [AltTab](https://github.com/lwouis/alt-tab-macos)：将 `Command+Tab` 改为按窗口切换（而非按应用），每个窗口都有缩略图预览，类似 Windows 的 Alt+Tab 体验。免费开源。
 
 ### **鼠标与输入增强**
 
-- [Mos](https://mos.caldis.me) ⭐：鼠标滚动增强工具，优化外接鼠标滚动体验，使其更平滑自然。
-  - 特点：解决 Mac 鼠标滚动不顺滑问题，提升外接鼠标体验。
+- [Mos](https://mos.caldis.me) ⭐：让鼠标滚轮方向独立于触控板，触控板保持自然滚动，鼠标保持 Windows 习惯，互不干扰。
 
 ### **压缩与解压**
 
@@ -129,6 +134,12 @@
   - `mo optimize`：系统优化。
   - `mo purge`：项目构建产物清理。
   - `mo installer`：清理安装包。
+- [AppCleaner](https://freemacsoft.net/appcleaner/)：拖入应用图标即可列出所有关联文件（偏好设置、缓存、支持文件等），一键彻底清除。免费无广告，界面极简。
+
+### **系统监控**
+
+- [Stats](https://github.com/exelban/stats)：开源系统监控工具，在菜单栏实时显示 CPU、内存、硬盘、网络、电池、风扇转速等信息，样式可自定义（数字、迷你图、百分比条）。
+  - 特点：免费开源，比 iStat Menus（付费）更轻量，对开发者和跑本地模型的用户是刚需。
 
 ***
 
@@ -150,6 +161,9 @@
 
 ### **数据库与 Redis 客户端**
 
+- [Chat2DB](https://github.com/CodePhiliaX/Chat2DB)：AI 驱动的数据库 GUI 工具，25.4k Star，支持 17+ 种数据库（含达梦、人大金仓、TiDB、OceanBase 等国产库），AI 写 SQL / 设计表结构 / 生成图表 / 解析 Excel，开源版可配本地模型实现全内网数据链路。
+  - AI 能力：自然语言转 SQL、智能补全（SEL → SELECT）、JOIN 自动关联、悬浮查看 DDL、一句话建表 + 语义化测试数据、自然语言生成图表。
+  - 部署：客户端直接下载或 Docker 私有化，AI 可自配 ChatGPT / 智谱 / 百川 / 千问等 API。
 - [openhare](https://github.com/sjjian/openhare)：AI 驱动的桌面 SQL 客户端，跨平台，使用 Flutter 构建。
 - [RedisME](https://www.hepengju.com/zh/)：Redis 图形化客户端，适合日常查看、编辑和管理 Redis 数据。
 - [TinyRDM](https://github.com/tiny-craft/tiny-rdm)：轻量 Redis 桌面客户端，适合本地和远程 Redis 连接管理。
