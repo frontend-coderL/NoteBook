@@ -1,6 +1,13 @@
 ## 编程学习与方法论
 
-- [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)：通过从零开始重现你喜欢的技术来掌握编程，适合按专题系统补基础。
+- [coding-interview-university](https://github.com/jwasham/coding-interview-university)：完整的计算机科学自学计划，347K Star、82.9K Fork，作者非科班出身通过这份清单进入 Amazon，CC-BY-SA-4.0 协议，有中文翻译。
+  - 核心内容：Big-O、数据结构（手写实现）、排序、图算法、动态规划、设计模式、系统设计，配合 MIT / UC Berkeley 精选视频和 LeetCode 刷题。
+  - 优势：严格有序的学习路径，GitHub checkbox 追踪进度，Fork 后可个人标记。
+  - 注意：专为美国大厂设计，国内面试需额外补充《剑指 Offer》和牛客网真题；英文视频为主；体量大，建议先只看必学部分。
+- [build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)：通过从零开始重现你喜欢的技术来掌握编程，费曼学习法的编程实践。
+  - 50+ 技术方向：操作系统、Git、内存分配器、编程语言、编译器、数据库、Docker、Web 服务器、3D 渲染器、游戏引擎、神经网络、LLM、RAG 等。
+  - 多语言实现：同一技术提供 Python / Go / C++ / JavaScript 等多种语言版本，基于真实可运行代码。
+  - 适合：想深度理解技术本质的开发者、面试前补基础、系统补计算机科学全貌。
 - [SkillOpt](https://aka.ms/SkillOpt)：把 Agent 的 skill 当作可训练的软件资产来优化，通过真实执行轨迹、结构化编辑和验证门持续改进外部技能文档，适合用来学习 Agent 如何沉淀流程经验，而不只是反复手改提示词。
   - 核心机制：基于 rollout、反思分析和 `add / delete / replace` 编辑迭代 skill 文档，再用 selection split 验证候选改动是否真的有效。
   - 值得关注：它把学习率、验证集、momentum 这类训练纪律迁移到文本技能优化中，适合理解企业 Agent、代码 Agent、办公自动化 Agent 的流程能力如何被系统性训练出来。
@@ -23,6 +30,20 @@
 - openai-agents-python：OpenAI Agents SDK 的 Python 实现，用于构建多代理工作流，支持 OpenAI Responses API、Chat Completions API 以及 100+ 其他大模型。
 - [DeepSeek-TUI](https://github.com/Hmbown/DeepSeek-TUI)：终端原生的 DeepSeek 编程智能体方案。
 - [hermes-agent](https://github.com/NousResearch/hermes-agent)：自我提升 AI 代理，强调从经验中积累技能、检索历史对话并持续优化自身行为。
+- [nanobot](https://github.com/HKUDS/nanobot)：港大 HKUDS 开源的轻量级 AI Agent 运行时，模块化 + 可插拔架构，个人开发者友好。
+  - 多渠道：WebUI、Telegram、飞书、Slack、Discord、Teams、微信、QQ 等，一处配置多处生效。
+  - 能力：MCP、记忆系统、工具编排、定时任务、图像生成、多 Provider 路由与回退。
+  - 适合：个人效率自动化、小团队协作、快速 PoC 验证、想拥有自己 Agent 技术栈的人。
+- [Odysseus](https://github.com/pewdiepie-archdaemon/odysseus)：PewDiePie 开源的自托管全能 AI 工作台，4 天 5 万+ Star，FastAPI + ChromaDB + SearXNG，Docker 一键部署，数据全部留在本地。
+  - 十大模块：聊天、Agent（支持工具调用 / MCP / Shell / 文件读写）、模型管理、深度研究、模型对比、文档编辑器、记忆系统、邮件、待办事项、日历。
+  - 亮点功能：Cookbook 扫描硬件自动推荐可跑的本地模型（含 fit score）；盲测模型对比；Deep Research 自动搜资料生成报告；邮件 AI 自动分类 + 摘要 + 回复草稿。
+  - 模型接入：vLLM、llama.cpp、Ollama、OpenRouter、OpenAI，支持 GGUF / FP8 / AWQ 量化。
+  - 注意：README 自称 “more jank and fun”，界面精致度不及商业产品，偶有小问题；适合想完全掌控数据和模型、不想被订阅锁死的用户。
+- [Cognee](https://github.com/topoteretes/cognee)：开源 AI Agent 记忆开发库，17.5K Star，ECL 管道（Extract → Cognify → Load）将非结构化数据转为可检索、可推理的知识图谱，Apache 2.0。
+  - 与传统 RAG 的区别：不只做文本切块向量检索，而是用 LLM 提取实体关系构建图谱，支持多跳推理（A → B → C 间接关联）。
+  - 开发体验：`uv pip install cognee` + 一个 OpenAI Key 即可跑通；默认 SQLite + LanceDB + Ladybug 全本地，生产可切换 PostgreSQL + Neo4j。
+  - API 设计：`remember()` / `recall()` / `improve()` 三个动词覆盖记忆全生命周期；支持 `session_id` 会话缓存与永久图谱双层记忆。
+  - 注意：LLM 调用是硬性成本，图谱质量取决于 LLM 能力；适合需要 Agent 长期记忆与关系推理的场景，简单事实检索用传统方案更经济。
 
 ## RAG 与文档处理
 

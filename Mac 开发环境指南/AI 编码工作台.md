@@ -2,7 +2,7 @@
 
 - [cc-switch](https://github.com/farion1231/cc-switch) ⭐：跨平台桌面一体化工具，统一管理多个 AI 编码 CLI（Claude Code、Codex、OpenCode、OpenClaw、Gemini CLI 等）的安装、配置、Provider 切换与启动。
   - 多 CLI 统一管理：在同一个 GUI 里装、卸、切换 7 个主流客户端。
-  - Provider 切换：内置多家 API / 中转服务商（官方、第三方代理、自建中转），一键切换当前激活的 Provider，免改环境变量。
+  - Provider 切换：内置 50+ 预设 provider（含 DeepSeek、智谱、MiniMax、Moonshot 等国内厂商），一键切换，免改环境变量。
   - 配置集中化：CLI 的 config / auth / MCP 配置文件统一管理，避免散落在多个目录。
 - [EchoBird](https://github.com/edison7009/EchoBird)：面向 AI 用户的桌面管理工具，集 Agent 安装、模型管理、本地大模型、应用管理于一体，适合小白快速上手。
   - Model Nexus：统一模型数据中心，OpenAI / Anthropic / DeepSeek / Ollama 等一处配置，四大场景立即生效。
@@ -105,7 +105,9 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
   - IDE 插件（VS Code / Cursor / Windsurf）：[developers.openai.com/codex/ide](https://developers.openai.com/codex/ide)
   - 云端 Web：[chatgpt.com/codex](https://chatgpt.com/codex)
 - **文档入口**：[developers.openai.com/codex](https://developers.openai.com/codex)
-- **桌面端增强**：[CodexPlusPlus](https://github.com/BigPizzaV3/CodexPlusPlus)——外部 launcher + Chromium DevTools Protocol 注入，不修改 Codex 原始 `app.asar`；API Key 登录模式下强制解锁 Codex 原生插件入口，支持切回官方 ChatGPT 登录态。
+- **桌面端增强**：[CodexPlusPlus](https://github.com/BigPizzaV3/CodexPlusPlus)（Rust + Tauri）——外部 launcher + Chromium DevTools Protocol 注入，不修改 Codex 原始 `app.asar`；API Key 登录模式下强制解锁 Codex 原生插件入口，支持切回官方 ChatGPT 登录态。
+  - 多中转站 / 多 API Key 管理：添加供应商时填 Base URL / Key / 上游协议（Chat Completions）→ 从上游获取模型列表 → 保存并应用。
+  - 增强功能：会话删除、Markdown 导出、Timeline 显示、Zed 远程打开、worktree 创建。
 
 ### OpenCode
 
@@ -189,6 +191,13 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
   - 适合：长期维护单个大项目的人，隔几天回来 Claude 不再完全失忆。
   - 不适合：每天换新项目、做一次性脚本的人——加了反而是负担。
 - [MemOS](https://github.com/MemTensor/MemOS)：面向 LLM 和代理系统的 AI 内存操作系统（moltbot、clawdbot、openclaw），实现持久技能内存，支持跨任务技能的重用和演进。
+- [Cognee](https://github.com/topoteretes/cognee)：AI Agent 记忆控制平面，双轨架构（向量搜索 + 知识图谱）。
+  - ECL 管道：Extract（LLM 提取实体关系）→ Cognify（构建知识图谱，支持多跳推理）→ Load（同时存入向量库 + 图数据库）。
+  - Session Memory：`remember()` 支持永久图谱或会话缓存（带 `session_id`），`improve()` 将有价值会话同步到永久图谱，`recall()` 自动路由查询。
+  - 默认本地三件套：SQLite + LanceDB + Ladybug，零外部依赖即可跑通；生产环境可切换 PostgreSQL + Neo4j，支持多租户。
+  - 集成：官方 MCP Server（`cognee-mcp`，支持 HTTP / SSE / stdio）、Claude Code 记忆插件、CLI（`cognee-cli remember / recall`）和 D3.js 可视化前端。
+  - 适合：企业知识库、多轮对话 Agent、技术文档问答等需要 Agent 持续学习与推理的场景。
+  - 注意：LLM 调用是硬性成本，复杂领域需自定义 OWL 本体约束提取行为；前端仍在开发中，生产建议通过 SDK 或 MCP 集成。
 - [mempalace](https://github.com/MemPalace/mempalace)：最佳基准测试的开源 AI 记忆系统。
 - [OpenViking](https://github.com/volcengine/OpenViking)：专为 AI 智能体设计的开源上下文数据库，用"文件系统范式"统一组织记忆、资源和技能。
   - [Claude Code 记忆插件](https://github.com/volcengine/OpenViking/blob/main/examples/claude-code-memory-plugin/README.md)
@@ -237,4 +246,9 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
   - 使用：`/context-mode:ctx-purge`（清空索引）、`/context-mode:ctx-insight`（本地仪表盘）。
 - [caveman](https://github.com/JuliusBrussee/caveman)：让 Claude 像"穴居人"一样说话省 token 的输出风格覆写，4 种强度模式（Lite / Full / Ultra / 文言文）。
 - [rtk](https://github.com/rtk-ai/rtk)：高性能 CLI 代理，智能过滤与压缩命令输出，可省 60% 到 90% Token。
+- [Headroom](https://github.com/chopratejas/headroom)：LLM 上下文压缩工具，11.3K Star，在工具输出 / 日志 / RAG 结果进入 LLM 前压缩，节省 60–95% Token，Apache 2.0。
+  - 核心能力：ContentRouter 自动识别内容类型并路由到对应压缩器（JSON / 代码 AST / 文本 / Git diff）；CCR 可逆压缩（压缩版给 LLM，原始内容可召回）；CacheAligner 稳定 prompt 前缀让 KV 缓存命中。
+  - 接入方式：一行代码（Python / TS）、透明代理（改 `base_url`）、`headroom wrap claude` 包裹 Agent、MCP Server。
+  - 附加功能：跨 Agent 共享记忆（Claude Code / Codex / Cursor 共用本地内存）、`headroom learn` 从失败 session 提取修正建议写入 CLAUDE.md。
+  - 注意：压缩比因场景而异，代码库探索类可能只省 40%+；需本地运行代理，不适合严格禁止代理的环境。
 

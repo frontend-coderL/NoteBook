@@ -31,7 +31,11 @@
   - 子智能体驱动开发：可以创建专门化子智能体执行特定任务，主智能体负责协调。
   - Git 工作树隔离：每个任务在独立 Git worktree 里开发，互不干扰。
   - 系统化调试：不是靠“试试看”，而是有结构的问题诊断和解决流程。
-- [compound-engineering-plugin](https://github.com/EveryInc/compound-engineering-plugin)：可视为 Superpowers 的增强版。
+- [compound-engineering-plugin](https://github.com/EveryInc/compound-engineering-plugin)：Every 团队从实战中摸索的复合工程体系，51 个专业 Agent + 35 个 Skill，核心理念是"每一次积累都让下一次更容易"。
+  - 七步循环：想点子 → 聊清楚 → 写计划 → 动手干 → 找毛病 → 打磨好 → 记下来 → 再来一轮。
+  - 51 个 Agent 分六大类：代码审查（20 个，安全/性能/测试/架构等并行审查）、文档审查（7 个）、研究（9 个）、设计（3 个）、工作流（2 个）、文档（1 个）。
+  - 常用命令：`/ce-ideate`（想点子）、`/ce-brainstorm`（聊需求）、`/ce-plan`（写计划）、`/ce-work`（动手干）、`/ce-code-review`（多审查员并行找毛病）、`/ce-compound`（记经验）、`/lfg`（一步到位）。
+  - 与 Superpowers 的核心差异：Compound 是命令驱动 + 经验复利（`/ce-compound` 记经验，下次自动调出）；Superpowers 是自动触发 + TDD 强制纪律。
 - [mattpocock/skills](https://github.com/mattpocock/skills) ⭐：一套前端开发工作流技能，用来解决人和 Agent 之间沟通对不齐的问题。
   - 开发类：
     - `/setup-matt-pocock-skills` ⭐：初始化并生成 `CONTEXT.md` 和 ADR 文档。
@@ -140,8 +144,8 @@
   - `/imagegen-frontend-web`、`/imagegen-frontend-mobile`：生成设计参考图。
   - `/brandkit`：生成品牌板、字体和色彩方向图。
 - [frontend-dev](https://github.com/MiniMax-AI/skills/tree/main/skills/frontend-dev)：面向 React / Next.js 与 Tailwind 的前端生成技能，覆盖媒体资源、说服力文案和生成艺术场景。
-- [rico-skills](https://github.com/ricocc/rico-skills)：设计与资源方向的 Skills 集合，183 Star。
-  - `rico-design-md`：DESIGN.md 生成器，输入网站 URL 即可提取结构化设计规范（颜色 token、排版刻度、间距、圆角、阴影、组件状态），同时输出 DESIGN.md（开发参考）+ preview.html（可视化预览），支持多格式导出（tokens.json / variables.css / theme.css）和格式互转。
+- [rico-skills](https://github.com/ricocc/rico-skills)：设计与资源方向的 Skills 集合。
+  - `rico-design-md`：DESIGN.md 生成器，输入网站 URL 即可提取结构化设计规范（颜色 token、排版刻度、间距、圆角、阴影、组件状态），同时输出 DESIGN.md（开发参考）+ preview\.html（可视化预览），支持多格式导出（tokens.json / variables.css / theme.css）和格式互转。
   - 适合：分析优秀网站视觉语言、整理品牌规范、为 AI 编程提供明确设计规格。
 - [awesome-design-md](https://github.com/VoltAgent/awesome-design-md)：一组受流行品牌设计系统启发的 `DESIGN.md` 文件合集，把设计约束文件放进项目，让编码代理生成更匹配的界面。
 
@@ -244,7 +248,10 @@
 - [frontend-slides](https://github.com/zarazhangrui/frontend-slides)：利用 Claude 的前端能力生成精美 HTML 幻灯片。
   - 适合产品汇报、技术分享和对外演示。
 - [ppt-master](https://github.com/hugohe3/ppt-master)：AI 从任意文档生成可原生编辑的 PPTX。
-- [guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill)：生成单文件 HTML 横向翻页 PPT，视觉风格偏”电子杂志 × 电子墨水”。
+- [GordenPPTSkill](https://github.com/GordenSun/GordenPPTSkill)：AI PPT 构建技能，内置 17 套中文模板，只填内容不动设计，出来就是整齐的 PPT。
+  - 自动检查文字溢出：超出文本框会提醒删字，同级标题必须一样大，保证排版不乱。
+  - 适合：年终总结、述职答辩、赶时间时用。
+- [guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill)：生成单文件 HTML 横向翻页 PPT，视觉风格偏"电子杂志 × 电子墨水"。
   - 合适：线下分享、行业内部讲话、私享会、AI 产品发布、demo day。
   - 不合适：大段表格数据、培训课件、多人协作编辑。
 - [Kami](https://github.com/tw93/Kami)：AI 时代的文档排版约束系统，通过十条不变量（羊皮纸底色、墨蓝单一强调色、衬线体层级、禁止冷灰和硬阴影等）约束 AI 输出稳定统一的排版风格。

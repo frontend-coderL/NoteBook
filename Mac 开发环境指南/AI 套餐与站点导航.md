@@ -28,6 +28,8 @@
 
 - [ChatGPT 充值中心](https://gpt.sub-ai.cc/)
 
+- [APiYA.Ai](https://shop.apiya.ai/)：AI 账号官方代充，支持 ChatGPT Plus/Pro、Claude Pro/Max、Grok Super、Gemini 等。
+
 ## AI 智能体
 
 - [扣子 - AI办公助手一站式平台 - 扣子提供AI写作|PPT|表格|设计|播客|生图](https://www.coze.cn/create-video)
