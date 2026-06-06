@@ -49,6 +49,7 @@ Anthropic 官方终端编码 Agent，原生支持 MCP、Skills、Hooks、子代�
 - `/rewind`：回滚到之前的某个对话节点，也可双击 `Esc`。
 - `/compact`：压缩上下文信息，上下文达到 40% 到 60% 时就应该进行压缩。
 - `/simplify`：识别冗余代码、简化复杂逻辑，聚焦代码可读性、重复逻辑和错误处理。
+- `/code-review`：代码审查（`/simplify`升级版），像资深 reviewer 一样找正确性问题，支持 `/code-review high` 控制审查深度，`--comment` 直接把问题作为 GitHub PR inline comments 发出。
 - `/review`：代码审查，提供规范检查和改进建议。
 - `/batch`：将大规模代码修改或迁移任务拆解为多个子任务并行执行。
 
@@ -176,6 +177,10 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 - **Context7** ⭐：实时检索文档，可将特定版本的文档与代码示例从源码仓库提取到 LLM 上下文。
 - [firecrawl-mcp-server](https://github.com/firecrawl/firecrawl-mcp-server)：为 Cursor、Claude 等 LLM 客户端添加网页爬取与搜索能力。
 - [github-mcp-server](https://github.com/github/github-mcp-server)：GitHub 官方 MCP 服务器，用自然语言管理代码仓库。
+- [sequentialthinking](https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking)：结构化推理 MCP 服务器，强制 AI 把问题拆成步骤、逐步推理、评估多种方案，避免浅层输出。
+  - 适合：系统设计、后端逻辑、复杂 Debug、基础设施规划等需要深度思考的场景。
+- [filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem)：文件系统 MCP 服务器，让 AI 拥有完整项目视野——导航文件夹、读取多文件、追踪依赖、理解架构。
+  - 适合：重构、大规模编辑、项目迁移、依赖分析等需要全局上下文的场景。
 - [supabase-mcp](https://github.com/supabase-community/supabase-mcp)：将 Supabase 连接到 AI 助手，用中文问数据库问题。
 - [publora/mcp-server](https://github.com/publora/mcp-server)：通过 Claude、Cursor 等 AI 助手控制社交媒体日程，一条指令多平台发布。
 
@@ -201,11 +206,13 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 - [mempalace](https://github.com/MemPalace/mempalace)：最佳基准测试的开源 AI 记忆系统。
 - [OpenViking](https://github.com/volcengine/OpenViking)：专为 AI 智能体设计的开源上下文数据库，用"文件系统范式"统一组织记忆、资源和技能。
   - [Claude Code 记忆插件](https://github.com/volcengine/OpenViking/blob/main/examples/claude-code-memory-plugin/README.md)
-- [agentmemory](https://github.com/rohitg00/agentmemory)：基于 iii-engine 的持久化记忆系统。
-  - **跨 Agent 共享**：Claude Code、Cursor、OpenClaw 都支持。
-  - **自动压缩与检索**：会话结束后自动压缩成可搜索的记忆，下次启动自动注入。
-  - **MCP 协议**：任何支持 MCP 的客户端都能接入。
-  - **知识图谱**：支持实体关系，不只是文本。
+- [agentmemory](https://github.com/rohitg00/agentmemory)：「#1 Persistent memory for AI coding agents」，隐式自动记忆运行时。
+  - 12 个生命周期 hook 自动捕获（PostToolUse 为核心入口），Agent 无需主动调用 `memory.save()`。
+  - 知识结晶（Crystallize）：关联 Action 完成后自动提炼「做了什么 + 关键决策 + 影响文件 + 经验教训」。
+  - 经验沉淀（Lessons）：贝叶斯强化（重复遇到提升置信度）+ 艾宾浩斯衰减（不用则遗忘）+ 内容指纹去重。
+  - 洞察生成（Reflect）：跨会话概念聚类 + LLM 合成高层 Insight，把碎片串成道理。
+  - 三路混合检索：BM25 + 向量 + 知识图谱 RRF 融合，Recall\@5 达 95.2%。
+  - 痛点：iii-engine 依赖（版本锁死 v0.11.2）、worker 间歇性 502、压缩后 summary 不可逆。
 - [Beads](https://github.com/gastownhall/beads)：为编码代理提供持久的结构化内存，用依赖感知图取代混乱的标记列表，通过 Dolt（版本控制 SQL 数据库）存项目任务、依赖、进度。
 
 ### 代码知识图谱

@@ -154,6 +154,10 @@
 * [codux](https://github.com/duxweb/codux)：原生 macOS 终端工作区，专为 AI 编程工具打造，支持多项目管理、内置 Git 和 AI 用量追踪。
 * [cmux](https://github.com/manaflow-ai/cmux)：基于 Ghostty 的 macOS AI 编码专用终端。
 
+- [Nezha](https://github.com/hanshuaikang/nezha)：Agent 优先的轻量级 AI-Native IDE，7MB 安装包（Tauri），在单一界面同时管理多个项目的 Claude Code / Codex 任务。
+  - 多项目工作区：左侧导航栏一键切换多个代码库，终端后台保持活跃，任务状态实时同步。
+  - 内置轻量代码编辑器（Shiki / CodeMirror）、Markdown 编辑器、原生 Git 集成（Diff / Log / 分支管理 / AI 生成 Commit Message）。
+
 ### **IDE 与编辑器**
 
 - [CodeKey Run](https://ckey.run/)：一行命令激活 JetBrains 全家桶，适合快速打开项目和工具链。

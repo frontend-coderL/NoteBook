@@ -11,11 +11,15 @@
 - [SkillOpt](https://aka.ms/SkillOpt)：把 Agent 的 skill 当作可训练的软件资产来优化，通过真实执行轨迹、结构化编辑和验证门持续改进外部技能文档，适合用来学习 Agent 如何沉淀流程经验，而不只是反复手改提示词。
   - 核心机制：基于 rollout、反思分析和 `add / delete / replace` 编辑迭代 skill 文档，再用 selection split 验证候选改动是否真的有效。
   - 值得关注：它把学习率、验证集、momentum 这类训练纪律迁移到文本技能优化中，适合理解企业 Agent、代码 Agent、办公自动化 Agent 的流程能力如何被系统性训练出来。
-- [ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) ⭐：项目驱动的 AI 工程学习路线，从本地模型推理到 RAG 系统到 Agent 协作到生产部署，3.1k Star。
-  - 企业级项目模板：Docker 健康检查、Prometheus 监控、JSON 日志等生产级工程实践。
-  - 跨项目代码积累：前一个项目代码可复用，累积效果可见。
-  - 缺陷数据库：常见问题与解决方案汇总，避免重复踩坑。
-  - 适合：想系统学习 AI 工程的学生、转行者、需要快速培养团队 AI 能力的技术管理者。
+- [ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch) ⭐：从零手写 AI 工程的完整课程体系，20 个 Phase / 435 节课 / 4 种语言（Python/TypeScript/Rust/Julia）/ \~320 小时。
+  - 核心教学法：每个算法先纯数学从零实现（无框架），再用生产级库（PyTorch、LangChain）重写，把「黑盒」变「白盒」。
+  - 路径：数学基础 → ML 原理 → 深度学习 → CV → NLP → 语音 → Transformer → GenAI → RL → 手写 LLM → LLM 工程化 → 多模态 → Agent → 多 Agent Swarm → 基础设施 → 伦理对齐。
+  - 配套网站：[aiengineeringfromscratch.com](https://aiengineeringfromscratch.com)，MIT 协议，可拿来做团队内部培训。
+  - 适合：转行 AI 工程的后端/前端开发者、已在做 AI 但基础不牢的在校生、需要在团队内建立 AI 工程能力的技术负责人。
+- [awesome-agentic-ai-zh](https://github.com/WenyuChiou/awesome-agentic-ai-zh)：Agentic AI 中文学习地图，8 阶段路线图 + 145+ 精选资源 + 27 个练习目录，三语（简中/繁中/English）。
+  - 两条主线：CLI Power User（把 Claude Code / Codex / Cursor 用得更稳）和 Agent Builder（设计能调用工具、管理上下文的智能体）。
+  - 覆盖：LLM 基础、Prompt 工程、MCP、Skills、Plugins、Subagents、Browser Use、Computer Use、代码沙箱。
+  - 适合：想系统理解 Agentic AI 而非追热点名词、准备内部 Agent 培训材料、从「会用工具」过渡到「会造系统」。
 - [advanced-java](https://github.com/doocs/advanced-java)：Java 进阶知识库，82K Star，覆盖高并发、分布式、微服务、中间件等高阶技术，同时汇总大厂面试真题与解析，MIT 协议。
   - 优势：贴合国内大厂技术体系与面试风格，中文讲解通俗易懂，持续迭代更新。
   - 注意：偏知识汇总而非项目实战，适合查漏补缺和面试备考，不适合替代官方文档学习具体框架。
@@ -30,10 +34,13 @@
 - openai-agents-python：OpenAI Agents SDK 的 Python 实现，用于构建多代理工作流，支持 OpenAI Responses API、Chat Completions API 以及 100+ 其他大模型。
 - [DeepSeek-TUI](https://github.com/Hmbown/DeepSeek-TUI)：终端原生的 DeepSeek 编程智能体方案。
 - [hermes-agent](https://github.com/NousResearch/hermes-agent)：自我提升 AI 代理，强调从经验中积累技能、检索历史对话并持续优化自身行为。
-- [nanobot](https://github.com/HKUDS/nanobot)：港大 HKUDS 开源的轻量级 AI Agent 运行时，模块化 + 可插拔架构，个人开发者友好。
-  - 多渠道：WebUI、Telegram、飞书、Slack、Discord、Teams、微信、QQ 等，一处配置多处生效。
-  - 能力：MCP、记忆系统、工具编排、定时任务、图像生成、多 Provider 路由与回退。
+- [nanobot](https://github.com/HKUDS/nanobot)：港大 HKUDS 开源的轻量级 AI Agent 运行时，代码量仅为同类框架的 1%，模块化 + 可插拔架构，2 分钟即可部署。
+  - 内置能力：长期记忆、联网搜索、文件处理、代码执行、定时任务、AI 审计沙箱、MCP、多 Provider 路由与回退。
   - 适合：个人效率自动化、小团队协作、快速 PoC 验证、想拥有自己 Agent 技术栈的人。
+- [GenericAgent](https://github.com/lsdefine/GenericAgent)：极简自进化 AI Agent，11K Star，核心仅 3K 行代码 / Agent Loop 约百行，不预设技能，靠进化获得能力。
+  - 9 个原子工具：代码执行、文件读写、网页控制、键鼠操作、屏幕视觉等，Agent Loop 仅百行。
+  - 自我进化：每次解决新任务自动将执行路径固化为 Skill，下次遇到类似任务直接调用，用几周后拥有专属技能树。
+  - Token 效率：上下文窗口不到 30K，分层记忆系统让关键信息始终在场，Token 消耗约同类 Agent 的 1/6。
 - [Odysseus](https://github.com/pewdiepie-archdaemon/odysseus)：PewDiePie 开源的自托管全能 AI 工作台，4 天 5 万+ Star，FastAPI + ChromaDB + SearXNG，Docker 一键部署，数据全部留在本地。
   - 十大模块：聊天、Agent（支持工具调用 / MCP / Shell / 文件读写）、模型管理、深度研究、模型对比、文档编辑器、记忆系统、邮件、待办事项、日历。
   - 亮点功能：Cookbook 扫描硬件自动推荐可跑的本地模型（含 fit score）；盲测模型对比；Deep Research 自动搜资料生成报告；邮件 AI 自动分类 + 摘要 + 回复草稿。

@@ -15,12 +15,22 @@
 - [ClawHub](https://clawhub.ai/)：社区驱动的 Skills 与 Plugins 市场，强调搜索、安装和创作者发布，适合补充找长尾工具。
 - [SkillsLLM](https://skillsllm.com/)：面向 Claude Code、Codex CLI、ChatGPT 等工具的 AI Skills 聚合站，带分类、趋势和项目详情页。
 - [SkillsMP](https://skillsmp.com/)：基于开放 `SKILL.md` 生态的技能搜索市场，支持按职业、类别和语义搜索大规模技能库。
+- [agent-skills](https://github.com/tech-leads-club/agent-skills)：经过安全审计的 AI 编程助手技能注册中心 + 包管理器，4K Star，支持 19 款工具（Claude Code / Cursor / Windsurf 等），收录 80 个技能跨 14 个分类。
+  - 安全体系：Snyk Agent Scan 静态分析 + 路径隔离 / 符号链接防护 / SHA-256 内容哈希 / 原子化 lockfile，三层纵深防御。
+  - 适合：多工具统一管理、团队协作规范封装、对技能安全性有要求的场景。
 - [awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills)：Composio 维护的 Claude Skills 精选目录，收录 1000+ 场景化 Skill。
 
 ## 技能入口与发现
 
 - [find-skills](https://skills.sh/vercel-labs/skills/find-skills) ⭐：一个技能搜索引擎，帮助用户快速定位并调用当前场景下最合适的工具。
 - [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) ⭐：允许用户将个人经验、特定业务逻辑封装成可复用的技能。
+- [SkillsVote](https://github.com/MemTensor/skills-vote)：Agent 技能推荐引擎，从 GitHub 发现 1.68M+ 个 SKILL.md，790K+ 通过格式验证，按任务推荐最合适的 skill 组合。
+  - 三步流程：Skill Profiling（分析结构信息、环境依赖）→ Evaluation（sandbox 验证能否真正完成任务）→ Recommendation（按任务推荐 skill 组合）。
+  - 适合：skill 装太多、想从海量 skill 中精准筛选、重度 Agent 用户和开发者。需配置 `SKILLS_VOTE_API_KEY`。
+- [SkillClaw](https://github.com/AMAP-ML/SkillClaw)：高德 AMAP-ML 团队出品，让 Agent 技能从真实对话中自动进化。
+  - 双组件架构：Client Proxy（本地 API 代理，拦截请求并记录轨迹）+ Evolve Server（夜间分析会话数据，自动生成/优化 Skill）。
+  - 核心机制：跨用户会话数据 → 识别重复模式 → 生成技能更新 → 验证有效才部署，确保单调递增不越改越差。
+  - 适合：团队想共享踩坑经验（A 踩坑全组免疫）、个人用户想 Agent 越用越强、技能库从静态说明书变成活的生态。
 
 ## 开发工作流与工程规范
 
@@ -143,6 +153,10 @@
   - `/image-to-code-skill`：先图像参考，再代码实现。
   - `/imagegen-frontend-web`、`/imagegen-frontend-mobile`：生成设计参考图。
   - `/brandkit`：生成品牌板、字体和色彩方向图。
+- [extract-design-system](https://github.com/arvindrk/extract-design-system)：从任意公开网站逆向提取设计 token（颜色、排版、间距、圆角、阴影），生成 JSON + CSS 自定义属性。
+  - 适合：接手成熟项目、补齐设计系统文档、从现有代码读出已有体系。
+- [emil-design-eng](https://github.com/emilkowalski/skill)：Emil Kowalski 的设计工程哲学 Skill，编码 UI 打磨、组件设计、动效决策和「让软件感觉对」的隐形细节。
+  - 适合：已经能写出来但总觉得还差最后一层精致度的页面，来自 animations.dev 作者的多年经验沉淀。
 - [frontend-dev](https://github.com/MiniMax-AI/skills/tree/main/skills/frontend-dev)：面向 React / Next.js 与 Tailwind 的前端生成技能，覆盖媒体资源、说服力文案和生成艺术场景。
 - [rico-skills](https://github.com/ricocc/rico-skills)：设计与资源方向的 Skills 集合。
   - `rico-design-md`：DESIGN.md 生成器，输入网站 URL 即可提取结构化设计规范（颜色 token、排版刻度、间距、圆角、阴影、组件状态），同时输出 DESIGN.md（开发参考）+ preview\.html（可视化预览），支持多格式导出（tokens.json / variables.css / theme.css）和格式互转。
@@ -163,6 +177,7 @@
 - [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)：Vercel 的 Agent Skills 集合。
   - `/web-design-guidelines` ⭐：根据 Vercel 的网页界面指南审核 UI 代码，确保设计和无障碍合规。
   - `/vercel-react-best-practices`：React 和 Next.js 性能优化指南。
+  - `/vercel-composition-patterns`：React 组件 API 组合方式，治理 boolean props 泛滥和组件失控生长。
 - [vercel-labs/next-skills](https://github.com/vercel-labs/next-skills)：Next.js 专项技能集合。
   - `/next-best-practices`：Next.js 最佳实践。
 - [gsap-skills](https://github.com/greensock/gsap-skills)：GSAP 官方 AI Skill，8 个技能覆盖核心 API、Timeline、ScrollTrigger、插件、React / Vue / Svelte 集成、性能优化与工具函数。
@@ -172,10 +187,16 @@
 ### 测试、调试与网站体检
 
 - [webapp-testing](https://github.com/anthropics/skills/blob/main/skills/webapp-testing)：基于 Playwright 的 Web 自动化测试技能，适合 E2E 测试、界面调试、截图采集和浏览器日志查看。
+- [playwright-cli](https://github.com/microsoft/playwright-cli)：微软官方 Playwright CLI Skill，让 Agent 直接驱动浏览器——录制、检查选择器、截图、复现前端交互。
+  - 适合：把「发现问题」和「复现问题」连成一条链，coding agent 场景下比 MCP 更轻量。
 - [playwright-best-practices-skill](https://github.com/currents-dev/playwright-best-practices-skill)：覆盖 Playwright 测试编写、调试和维护的综合实践指南。
 - [chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp)：让 AI 编码助手接入 Chrome DevTools 的自动化、调试和性能分析能力。
   - 官方安装：`/plugin install chrome-devtools-mcp`
 - [audit-website](https://github.com/squirrelscan/skills)：网站体检技能，检查 SEO、性能、安全和可访问性问题。
+- [frontend-code-review](https://github.com/langgenius/dify/tree/main/.agents/skills/frontend-code-review)：前端代码审查技能，126.3k 热度，覆盖 7 大维度（代码质量 / 功能实现 / 性能优化 / 安全性 / 可访问性 / React 特定 / Vue 特定），输出 P0–P2 分级报告 + 0–10 评分。
+  - 支持框架：React 16–19、Vue 2/3、Angular、Svelte、原生 JS/TS。
+  - 与未装 Skill 对比：问题发现量约 5 倍差距，每个问题附带修复代码示例。
+  - 支持接入 CI/CD（GitHub Action），PR 提交时自动触发审查并以行内评论形式输出。
 
 ## 搜索、浏览与外部操作
 
