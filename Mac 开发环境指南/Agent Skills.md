@@ -263,6 +263,12 @@
 - [anthropics/skills](https://github.com/anthropics/skills)：Anthropic 官方技能仓库。
   - `/web-artifacts-builder`：把资料、数据和结论变成可交互展示的网页。
   - `/canvas-design`：绘制架构图、流程图和简单报告封面图，并导出 PNG、PDF。
+- [SenseNova-Skills](https://github.com/OpenSenseNova/SenseNova-Skills)：OpenSenseNova 团队的 AI 办公技能套件，覆盖图片生成、PPT 制作、Excel 分析、深度研究四大领域，20+ 个技能，支持 OpenClaw / hermes-agent / Raccoon。
+  - 图片生成：sn-image-base（文生图 / 图识别）→ sn-infographic（87 种布局 + 66 种风格，VLM 质检）→ sn-image-imitate（风格模仿）。
+  - PPT 制作：sn-ppt-entry（统一入口，解析 PDF / DOCX / MD）→ sn-ppt-creative（每页 PNG）/ sn-ppt-standard（样式规范→大纲→质检→导出 PPTX）。
+  - 数据分析：sn-da-excel-workflow（多表合并、≥1 万行自动转 Parquet、跨表聚合）+ sn-da-image-caption（表格 OCR / 图表理解）+ sn-da-large-file-analysis。
+  - 深度研究：sn-deep-research（规划→维度收集→综合→报告，支持断点续跑）+ sn-search-academic / sn-search-code / sn-search-social-cn / sn-search-social-en。
+  - 适合：端到端办公工作流（数据分析→研究报告→PPT）、不想在多个平台切换的用户。
 
 ### 演示文稿与展示网页
 

@@ -22,6 +22,8 @@
 - [ChatGPT 充值中心](https://gpt.sub-ai.cc/)
 - [APiYA.Ai](https://shop.apiya.ai/)：AI 账号官方代充，支持 ChatGPT Plus/Pro、Claude Pro/Max、Grok Super、Gemini 等。
 - [BeWild.AI](https://bewild.ai/)：AI 账号官方代充，聚合 GPT、Claude、Grok、Gemini 等多模型。
+- [BearJia Coder](https://ai.bearjia.cn/home)：AI API Gateway。
+- [relayAPI](https://github.com/zzsting88/relayAPI)：AI API 中转站推荐与评测，对比各站点价格、速度、稳定性，帮助选择合适的中转站。
 
 ## AI 智能体
 
