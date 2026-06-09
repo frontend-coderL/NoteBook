@@ -1,11 +1,24 @@
-# Vite 打包优化
-
 亮点：
+
 - rollup-plugin-visualizer 可视化分析打包体积，精准定位大文件
-- Gzip / Brotli 双压缩，传输体积缩小 60%~80%
+- Gzip / Brotli 双压缩，传输体积缩小 60%\~80%
 - CDN 外置第三方依赖，打包体积减少 80%+
 - manualChunks 手动分包，路由 / 组件按需加载
 - 小图片自动转 base64，减少 HTTP 请求
+
+## 环境判断
+
+很多优化只需在生产环境生效（如代码混淆、关闭 sourceMap），开发 / 测试环境保留原始配置更方便调试。
+
+```TypeScript
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), 'VITE_')
+  const isProd = mode === 'prod'
+  return {
+    // 所有优化配置写在这里
+  }
+})
+```
 
 ## 打包分析
 
@@ -48,30 +61,63 @@ const routes = [
 ]
 ```
 
-## Gzip / Brotli 压缩
+## 代码压缩 + 混淆
 
-性价比最高的优化，体积直接缩小 60%~80%。
+Terser 比默认的 esbuild 压缩率更高，还支持代码混淆，完胜 esbuild（esbuild 胜在速度，但压缩率和安全性不如 Terser）。
 
 ```Shell
-npm install vite-plugin-compression -D
+pnpm add terser -D
 ```
 
 ```TypeScript
-import compression from 'vite-plugin-compression'
+export default defineConfig(({ mode }) => {
+  const isProd = mode === 'prod'
+  return {
+    build: {
+      minify: 'terser',
+      sourcemap: !isProd, // 生产环境关闭 sourceMap，防止代码反解
+      terserOptions: isProd
+        ? {
+            compress: {
+              drop_console: true,    // 移除 console
+              drop_debugger: true,   // 移除 debugger
+            },
+            mangle: {
+              toplevel: true,        // 混淆顶层变量名
+              eval: true,            // 混淆 eval 中的变量
+            },
+            format: {
+              comments: false,       // 移除所有注释
+            },
+          }
+        : {},
+    },
+  }
+})
+```
+
+## Gzip / Brotli 压缩
+
+性价比最高的优化，体积直接缩小 60%\~80%。推荐用 `vite-plugin-compression2`（新版）。
+
+```Shell
+pnpm add vite-plugin-compression2 -D
+```
+
+```TypeScript
+import { compression } from 'vite-plugin-compression2'
 
 export default defineConfig({
   plugins: [
     compression({
-      algorithm: 'gzip',
-      ext: '.gz',
-      threshold: 10240,     // 大于 10KB 才压缩
-      deleteOriginFile: false
+      algorithms: ['gzip'],         // Gzip 压缩
+      threshold: 10240,             // 大于 10KB 才压缩
+      deleteOriginalAssets: false,  // 不删除原文件，兼容不支持 Gzip 的环境
     }),
     compression({
-      algorithm: 'brotliCompress',  // Brotli 比 gzip 压缩率更高
-      ext: '.br',
-      threshold: 10240
-    })
+      algorithms: ['brotliCompress'],  // Brotli 比 gzip 压缩率更高
+      threshold: 10240,
+    }),
   ]
 })
 ```
@@ -156,12 +202,68 @@ export default defineConfig({
 
 ## 图片优化
 
+#### 构建时内联
+
 ```TypeScript
 export default defineConfig({
   build: {
     assetsInlineLimit: 10240,    // 小于 10KB 的图片转 base64
     chunkSizeWarningLimit: 2000  // 超过 2M 才警告
   }
+})
+```
+
+#### 自动压缩 + 格式转换
+
+用 `vite-plugin-image-optimizer` 实现图片自动压缩 + 格式转换，80% 质量肉眼无差别，体积砍半。
+
+```Shell
+pnpm add vite-plugin-image-optimizer -D
+```
+
+```TypeScript
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
+
+export default defineConfig({
+  plugins: [
+    ViteImageOptimizer({
+      png: { quality: 80 },
+      jpeg: { quality: 80 },
+      webp: { quality: 80 },  // 自动转 WebP
+    }),
+  ]
+})
+```
+
+## 依赖预构建
+
+Vite 的依赖预构建把 CommonJS/UMD 格式的依赖转成 ES 模块，避免开发过程中重复转换，启动速度更快。
+
+```TypeScript
+export default defineConfig({
+  optimizeDeps: {
+    include: ['vue', 'vue-router', 'pinia', '@vueuse/core'],
+  },
+})
+```
+
+## 浏览器兼容（Legacy）
+
+Vue3 不支持 IE11，但现代浏览器也有版本差异。用 Vite 官方插件自动生成兼容代码。
+
+```Shell
+pnpm add @vitejs/plugin-legacy -D
+```
+
+```TypeScript
+import legacy from '@vitejs/plugin-legacy'
+
+export default defineConfig({
+  plugins: [
+    legacy({
+      targets: ['defaults', 'not IE 11'],  // 兼容所有现代浏览器，排除 IE11
+    }),
+  ]
 })
 ```
 
@@ -217,8 +319,16 @@ export default defineConfig({
 })
 ```
 
+## 拓展优化
+
+- SVG 雪碧图：`vite-plugin-svg-icons`，减少 SVG 请求数
+- PWA：`vite-plugin-pwa`，支持离线访问
+- CDN 加速：`vite-plugin-cdn-import`，外置第三方依赖
+- 按需引入：`unplugin-vue-components`，组件库按需引入避免全量打包
+
 ## 内网场景注意事项
 
 - 舍弃外网 CDN，依靠路由懒加载、手动分包、本地压缩实现优化
 - CDN 依赖外网网络，内网隔离环境直接使用会引发资源请求失败
 - `rollup-plugin-visualizer` 仅生成分析报表，不改动产物体积
+

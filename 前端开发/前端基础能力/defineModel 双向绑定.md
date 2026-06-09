@@ -1,5 +1,3 @@
-来源：[v-model 淘汰！Vue3 新玩法代码量减少 60%](https://mp.weixin.qq.com/s/)
-
 ### 核心概念
 
 `defineModel` 是 Vue 3.4 引入的编译期宏，让子组件像原生 `<input>` 一样直接支持 `v-model`。
