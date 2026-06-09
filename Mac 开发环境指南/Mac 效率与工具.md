@@ -187,7 +187,13 @@
 - [open-notebook](https://github.com/lfnovo/open-notebook)：NotebookLM 的开源替代实现，强调更高的灵活性和扩展空间。
 - [BiliNote](https://github.com/JefferyHcool/BiliNote)：AI 视频笔记生成工具，适合把视频内容整理成结构化笔记。
 
-### **API 调试与抓包**
+### 浏览器增强
+
+- [SuperLevels](https://github.com/levelsio/superlevels)：开源 Chrome 插件，一个替代 12 个闭源插件，完全可审计，数据只存本地。
+  - 实用功能：Tab Cleaner（自动关不活跃标签）、Cookie 编辑器、暗色模式、JS Toggle、GDPR Cookie 弹窗终结者、YouTube 纯净模式、自定义 CSS。
+  - 隐私保证：无 analytics、无追踪、无电话回家；唯一网络请求是音乐识别（需主动触发 + 自带 API Key）。
+
+### API 调试与抓包
 
 - [Hoppscotch](https://github.com/hoppscotch/hoppscotch)：开箱即用的在线 API 测试工具，支持 HTTP、WebSocket 等 10+ 协议，开源免费。
   - 特点：PWA 应用可桌面安装离线使用、团队协作免费、代码生成、适合个人快速测试和轻量场景。

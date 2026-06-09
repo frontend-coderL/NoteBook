@@ -69,4 +69,11 @@
   - `pi-chat`：Slack 机器人与聊天自动化。
   - 工程化亮点：依赖版本精确锁定 + shrinkwrap 隔离，供应链安全。
   - 适合：团队构建内部 coding assistant，多模型快速切换对比，软件过程自动化。
+- [Mastra](https://github.com/mastra-ai/mastra)：Gatsby 团队打造的 TypeScript AI 全栈框架，24K Star，定位覆盖从原型到生产的全流程，解决「原型半天，上线数周」的断层。
+  - 双轨编排引擎：Workflows（图引擎）用 `.then()` / `.branch()` / `.parallel()` 显式控制流，适合确定性任务；Agents 让模型自主推理、选择工具、反复迭代直到满足停止条件，适合开放性任务。
+  - 生产工具链内置：Evals（模型输出评估系统）、Observability（执行状态跟踪）、HITL（人机交互暂停与恢复，存储持久化执行状态，可无限期暂停后从断点继续）。
+  - MCP 服务器：Agent 和工具暴露为标准协议接口，可被任何支持 MCP 的系统调用，无需写胶水代码集成。
+  - TypeScript 优先：可整合 React、Next.js、Node.js，集成 Vercel AI SDK UI 和 CopilotKit，目标用户是 Web 应用开发者。
+
+    <br />
 

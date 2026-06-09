@@ -274,6 +274,10 @@
 
 - [frontend-slides](https://github.com/zarazhangrui/frontend-slides)：利用 Claude 的前端能力生成精美 HTML 幻灯片。
   - 适合产品汇报、技术分享和对外演示。
+- [beautiful-html-templates](https://github.com/zarazhangrui/beautiful-html-templates)：34 套专业设计师打磨的 HTML 幻灯片模板，1.3K Star，配合 AGENTS.md 让 AI 按模板生成演示文稿。
+  - 每套 8–13 张，完整视觉系统（字体组合 + 色彩体系 + 装饰元素 + 间距韵律），风格覆盖 Soft Editorial / Neo-Grid Bold / 8-Bit Orbit / Broadside（中英双语）/ Retro Windows 等。
+  - 工作流：用户描述场景 → AI 读 `index.json` 匹配 3 个候选 → 生成封面预览 → 用户选一个 → AI 按页填充内容。
+  - 纯 HTML + CSS，极少量 JS 翻页，打开浏览器即可演示，MIT 协议可商用。
 - [ppt-master](https://github.com/hugohe3/ppt-master)：AI 从任意文档生成可原生编辑的 PPTX。
 - [GordenPPTSkill](https://github.com/GordenSun/GordenPPTSkill)：AI PPT 构建技能，内置 17 套中文模板，只填内容不动设计，出来就是整齐的 PPT。
   - 自动检查文字溢出：超出文本框会提醒删字，同级标题必须一样大，保证排版不乱。
