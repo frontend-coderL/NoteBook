@@ -332,6 +332,80 @@ plugins=(git sudo z zsh-autosuggestions zsh-syntax-highlighting)
     - 主题：`ya pack -a yazi-rs/flavors#catppuccin-mocha`
 - 同类对比：比 ranger（Python）快很多，比 lf（Go）功能更全，比 nnn（C）学习曲线更友好。
 
+## 5 Fish Shell
+
+官网：[fishshell.com](https://fishshell.com/)
+
+Fish（Friendly Interactive Shell）主打开箱即用，把 zsh 需要装三四个插件才能实现的能力全部内置了。和 Oh My Zsh 是二选一的关系，不是叠加。
+
+### 5.1 安装与切换
+
+```Shell
+# 安装
+brew install fish
+
+# 设置为默认 shell
+chsh -s /usr/local/bin/fish
+
+# 切回 zsh
+chsh -s /bin/zsh
+```
+
+### 5.2 核心优势
+
+- 智能自动补全：打几个字母就猜到完整命令，按右方向键直接补上。fastfetch 长参数、rg + fzf 管道命令都能补回来。
+- 实时语法高亮：打错命令实时变红，还没按回车就知道拼错了。
+- Tab 补全：自带 1000+ 工具的补全规则，git 子命令后面都带说明。
+- 以上能力在 zsh 上要装 zsh-autosuggestions + zsh-syntax-highlighting 等三四个插件，Fish 全是内置的。
+
+### 5.3 缩写系统 abbr
+
+Fish 独有的缩写机制，打 `gst` 按空格自动展开成 `git status`，历史记录里存的是完整命令，翻历史不会一脸懵。
+
+```Fish
+# 定义缩写
+abbr -a gst git status
+abbr -a gco git checkout
+abbr -a gc git commit
+abbr -a gp git push
+abbr -a gl git log --oneline --graph
+```
+
+### 5.4 bash 兼容性
+
+- bash 脚本在 Fish 里直接跑，系统看的是第一行的 shebang，跟用什么 shell 没关系。
+- 网上复制的命令大部分能直接用，碰上不行的 `bash -c '...'` 一包就行。
+- zshrc 配置不用手动翻译，丢给 Claude Code 让它转成 config.fish，几秒钟搬完。
+
+### 5.5 配置文件
+
+Fish 配置文件位于 `~/.config/fish/config.fish`，语法和 zsh 不同，但更简洁。
+
+```Fish
+# 环境变量
+set -gx EDITOR nvim
+set -gx PATH $PATH /usr/local/bin
+
+# alias
+alias ll='eza -l --group-directories-first --icons'
+alias cat='bat'
+
+# 缩写
+abbr -a gst git status
+abbr -a gco git checkout
+```
+
+### 5.6 与 Oh My Zsh 的取舍
+
+| 维度 | Oh My Zsh + zsh | Fish |
+|------|----------------|------|
+| 开箱即用 | 需装多个插件 | 内置全部能力 |
+| 脚本兼容性 | 原生 bash 语法 | 语法不同，脚本需转换 |
+| 生态插件 | 极其丰富 | 相对较少 |
+| 配置复杂度 | 高（zshrc + 插件配置） | 低（单个 config.fish） |
+
+适合人群：不想折腾插件配置、追求开箱即用的人。如果已经在 zsh 生态里配好了一套顺手的插件，没必要换。
+
 # **6 后续**
 
 - zsh 优化（性能 + 启动速度）

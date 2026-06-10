@@ -63,15 +63,24 @@
     - `/to-issues`：把口头描述转成结构化 GitHub Issue。
     - `/triage`：按优先级给出 issue 分类与处理顺序建议。
     - `/handoff`：生成 Agent 交接文档，把上下文留住。
-- [get-shit-done](https://github.com/gsd-build/get-shit-done)：规格驱动开发与上下文工程工作流，把大任务拆成多个小计划分上下文执行。
+- [get-shit-done](https://github.com/gsd-build/get-shit-done)：规格驱动开发与上下文工程工作流，解决 context rot 问题（context window 填满时输出质量下降），三层文件结构（.planning/ + .memory/ + .context/）。
   - `/gsd-map-codebase`：扫描并索引当前代码库状态。
   - `/gsd-new-project`：基于当前上下文创建新的 GSD 规划结构。
-- [gstack](https://github.com/garrytan/gstack)：Y Combinator 总裁 Garry Tan 出品，23 个 Skill + 8 个工具，模拟 20 人团队（CEO、设计师、QA、发布经理、文档工程师等）把 Claude Code 变成完整工程团队。
-  - `/office-hours`：先把产品方向和需求边界问清楚。
+  - 核心思路：先写 spec，AI 按 spec 执行，会话结束时保存记忆，下次会话基于真实上下文开始。
+- [gstack](https://github.com/garrytan/gstack)：模拟完整工程团队（CEO、设计师、QA、发布经理等）。
+  - `/office-hours`：YC Office Hours 风格，六道 forcing questions 重构产品思路。
   - `/plan-ceo-review`：从商业和产品视角砍掉无效需求，锁定最小可行版本。
   - `/plan-eng-review`：锁定技术架构、数据流和接口契约，输出完整技术方案。
-  - `/plan-design-review`：完成 UI/UX 设计评审，锁定交互细节。
+  - `/plan-design-review`：完成 UI/UX 设计评审，0–10 评分，找出 AI slop。
+  - `/review`：Staff Engineer 角色，找 CI 过但 production 炸的 bug。
+  - `/qa`：QA Lead，真实浏览器测试，atomic commit 修复。
+  - `/cso`：Chief Security Officer，OWASP Top 10 + STRIDE 威胁模型。
+  - `/ship`：Release Engineer，sync main、run tests、open PR。
   - `/autoplan`：一键审查流水。
+- [Trellis](https://github.com/nicepkg/trellis)：仓库级记忆基础设施，把规范、任务、记忆沉淀进仓库，让任意 Coding Agent 都按你的工程标准实践。
+  - 文件结构：`.trellis/spec/`（规范文件，按任务自动注入）+ `.trellis/tasks/`（PRD、实现上下文、审查上下文）+ `.trellis/workspace/`（工作日志，保留上次会话脉络）。
+  - 4 阶段循环：Plan（brainstorm + 写 PRD）→ Implement（写代码，上下文已自动注入）→ Verify（对照 Spec 核查 + lint + type-check + 测试）→ Finish（新认知沉淀回 spec/）。
+  - 每次 Finish 都在为下次积累，实现「会学习的 AI 工作流」。
 - [claude-code-harness](https://github.com/Chachamaru127/claude-code-harness)：在 Claude Code 外套一个有纪律的交付循环，把”计划→实现→审查→发布”变成固定路径。
   - 核心 skill：`/harness-plan`（起草 spec.md 和 Plans.md）、`/harness-work`（TDD 执行已批准任务）、`/harness-review`（实现与审查分离，独立审查）、`/harness-release`（打包发布证据，preflight 检查）
   - `harness.toml`：项目级安全边界和行为策略配置文件，定义权限控制、网络出口过滤、文件系统读取限制和 Worker 自检规则。
@@ -208,7 +217,10 @@
 
 ### 浏览器自动化
 
-- [agent-browser](https://github.com/vercel-labs/agent-browser) ⭐：Vercel 出品的浏览器自动化 Skill，适合表单填写、页面点击、截图、动态内容抓取等场景。
+- [agent-browser](https://github.com/vercel-labs/agent-browser) ⭐：Vercel 出品的浏览器自动化 Skill，Rust 原生编写，通过 CDP 驱动 Chrome，无需 Playwright/Puppeteer。
+  - 核心设计：Snapshot + Ref 引用模式，AI 无需理解 CSS 选择器，拿到 ref 编号直接操作（如 `agent-browser click @e2`），token 消耗极低。
+  - 支持无头/有头模式切换、复用本地 Chrome 登录态（`--profile Default`）、多窗口并行操作。
+  - 适合：表单填写、页面点击、截图、动态内容抓取、前端调试、自动化测试、部署后巡检等场景。
 - [browser-use](https://github.com/browser-use/browser-use)：让 AI Agent 能访问和操作网站的工具，既可作为 Skill 使用，也能独立运行。
 - [browserbase/skills](https://github.com/browserbase/skills)：操控真实浏览器的 Skills 集合。
   - `/autobrowse`：自改进浏览技能。
@@ -222,6 +234,10 @@
 ### 外部平台操作
 
 - [github](https://clawhub.ai/steipete/github)：用 `gh` CLI 让 AI 直接操作 GitHub，包括查 PR、看 CI、查失败步骤和检索 issue。
+- [PinMe](https://github.com/glitternetwork/pinme)：一句话把代码发布到公网的部署 Skill，累计部署超 100 万个网站，静态资源走 IPFS 分布式存储，全栈项目前后端分离 + Edge Runtime + Serverless SQL。
+  - Skill 模式：`npx skills add glitternetwork/pinme`，安装后 AI Agent 写完代码自动部署，后续修改对话中自动更新，全程零运维。
+  - 内置能力：邮件推送、LLM 调用。
+  - 适合：MVP 验证、Demo 展示、AI 生成页面快速发布、不想碰服务器配置的人。
 
 ## 研究、文档与知识表达
 
@@ -282,9 +298,11 @@
 - [GordenPPTSkill](https://github.com/GordenSun/GordenPPTSkill)：AI PPT 构建技能，内置 17 套中文模板，只填内容不动设计，出来就是整齐的 PPT。
   - 自动检查文字溢出：超出文本框会提醒删字，同级标题必须一样大，保证排版不乱。
   - 适合：年终总结、述职答辩、赶时间时用。
-- [guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill)：生成单文件 HTML 横向翻页 PPT，视觉风格偏"电子杂志 × 电子墨水"。
+- [guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill)：生成单文件 HTML 横向翻页 PPT，视觉风格偏「电子杂志 × 电子墨水」。
   - 合适：线下分享、行业内部讲话、私享会、AI 产品发布、demo day。
   - 不合适：大段表格数据、培训课件、多人协作编辑。
+- [guizang-social-card-skill](https://github.com/op7418/guizang-social-card-skill) ⭐：小红书图文组图 + 公众号封面生成 Skill，2,952 Star，与 guizang-ppt-skill 共享同一套设计美学，单文件 HTML + Playwright 渲染 PNG。
+  - 注意：AGPL-3.0 协议（商用需开源）；依赖 Agent 环境（Claude Code / Codex / Cursor），普通 Chatbot 无法使用。
 - [Kami](https://github.com/tw93/Kami)：AI 时代的文档排版约束系统，通过十条不变量（羊皮纸底色、墨蓝单一强调色、衬线体层级、禁止冷灰和硬阴影等）约束 AI 输出稳定统一的排版风格。
   - 14 种内联 SVG 图表：架构图、流程图、象限图、柱状图、折线图、环形图、状态机、时间线等，纯 HTML + SVG，不依赖 Mermaid / JS。
   - 渲染路径：HTML 模板通过 WeasyPrint 转 PDF，幻灯片通过 python-pptx 生成 PPTX，本地一条命令出结果。

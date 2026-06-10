@@ -8,8 +8,6 @@
 - [OpenCode Go | 人人可用的低成本编程模型](https://opencode.ai/zh/go)
 - [意心 AI Coding Plan](https://yxai.chat/coding-plan)：面向 Claude Code 一类编码场景的国内套餐与接入入口。
 
-  <br />
-
 ## 免费
 
 - [Try NVIDIA NIM APIs](https://build.nvidia.com/)
@@ -23,6 +21,7 @@
 - [APiYA.Ai](https://shop.apiya.ai/)：AI 账号官方代充，支持 ChatGPT Plus/Pro、Claude Pro/Max、Grok Super、Gemini 等。
 - [BeWild.AI](https://bewild.ai/)：AI 账号官方代充，聚合 GPT、Claude、Grok、Gemini 等多模型。
 - [BearJia Coder](https://ai.bearjia.cn/home)：AI API Gateway。
+- [PixelSub](https://www.pixelsub.cn/)：Gemini Pro 自主订阅平台，提交 Google 账户后系统自动开通 Pro 年费，全程自动化，失败自动退还。
 - [relayAPI](https://github.com/zzsting88/relayAPI)：AI API 中转站推荐与评测，对比各站点价格、速度、稳定性，帮助选择合适的中转站。
 
 ## AI 智能体
@@ -37,10 +36,10 @@
 - [Skywork︱The Originator of AI Workspace Agents](https://skywork.ai/)
 - [Atoms：用 AI 构建网站与应用，无需编码](https://atoms.dev/zh)
 - [ai.sandunppt.com](https://ai.sandunppt.com)
-- [SANDUN - PPT Design Agent](https://sandun.cc/)
+- [SANDUN - PPT Design Agent](https://sandun.cc/)：给个主题就能跑完全流程的 PPT Agent。
+  - 思路分享：[扒一扒目前最强的PPT Agent](https://mp.weixin.qq.com/s/REaepknjslx3_ekta_YDaA)（需求调研 → 资料搜集 → 大纲策划 → 策划稿 → SVG 设计稿）
 - [txyz.ai - Integrate all paths to knowledge](https://app.txyz.ai/)
 - [zread.ai](https://zread.ai/)
 - [Manus](https://manus.im/app)
 - [www.anygen.io](https://www.anygen.io/home)
 - [monica.im](https://monica.im/home/chat/Monica/monica)
-

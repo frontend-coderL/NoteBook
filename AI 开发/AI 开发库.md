@@ -14,6 +14,11 @@
   - 核心机制：Pydantic 强类型约束（拦截错误参数）→ 自动修复循环（错误变提示，中断变循环，最多 3 次重试）→ 沙箱执行环境（限制危险操作）。
   - 实测数据：Llama 3 8B + Forge 成功率 99% vs Claude Sonnet 92%，单次任务成本 $0.01 vs $0.25（1/25）。
   - 适合：大规模自动化（数据清洗、运维、批量代码生成）降本、不想依赖昂贵 API 的团队、本地部署数据私有化。
+- [Deep Agents](https://docs.langchain.com/oss/python/deepagents/harness)：LangChain 官方推出的多智能体框架，基于 LangGraph 构建，专为「复杂多步骤 + 长期决策」任务设计，提供 SDK 和 CLI 两种集成方式。
+  - 四大核心能力：规划（内置 write\_todos 任务分解与进度跟踪）/ 上下文管理（文件系统级卸载，ls / read\_file / write\_file / edit\_file，解决上下文爆炸）/ 子代理（task 工具生成独立上下文子 Agent，互不污染）/ 长期记忆（LangGraph Memory Store 跨会话持久化）。
+  - CLI 模式：命令行交互式 Agent，支持技能与记忆定制、代码执行（本地或沙箱），越用越懂用户偏好。
+  - 适用场景：单 Agent 模式已无法满足多步骤强依赖任务（技术方案生成、系统级调研、项目代码结构自动生成）、需要专职角色协作（架构/查资料/写代码/校验各自分工）。
+  - 与 DeerFlow 区别：Deep Agents 是 LangChain 官方底层框架，DeerFlow 是基于其上的应用级 Super Agent Harness。
 
 ### 文档处理
 
@@ -56,6 +61,28 @@
   - 双路召回：BM25 + Embedding RRF 融合，PersonaMem 评测准确率 47.85% → 76.10%。
   - 部署：SQLite 本地版（零外部依赖）或腾讯云向量数据库版（企业级）。
   - 适合：长任务/运维排错、需保留完整证据的场景；当前仅支持 OpenClaw/Hermes。
+- [mem0](https://github.com/mem0ai/mem0)：记忆中间层（Memory Layer），夹在 Agent 与底层存储之间，把对话加工成可长期检索的记忆，定位不是向量库封装而是「记忆编辑器 + 多源融合检索」。
+  - 写入架构演进：旧版「主动式记忆编辑」（多次 LLM 调用，最高 5 次，支持新增/更新/删除/不处理，延迟高且误删误改风险大）→ 新版大幅简化（单次 LLM 提取事实 + hash 去重 + 实体链接，去掉图数据库，流程短、模型职责窄，代价是记忆只增不删，旧信息不会自动消失）。
+  - 写入流程：取最近 10 条消息补上下文 → 检索相关旧记忆放入 prompt → LLM 提取新事实 → 去重 + 实体关联 → 写入三类存储。
+  - 三层存储：向量数据库（20+ 提供商适配，保存记忆向量）+ 实体向量集合（复用向量库，记录关键对象与记忆 id 的关联）+ 本地 SQLite（变更历史 + 最近消息，服务下次写入上下文）。
+  - 多源融合检索：语义检索（先多取候选 max(limit*4, 60)）→ BM25 关键词补充字面匹配 → 实体信号加权（从 query 抽实体反查 linked_memory_ids）→ 融合重排（可选 reranker）。
+  - 注意：当前版本「只增」策略会导致记忆堆积，冲突信息靠检索排序而非写入时清理，业务侧需自补过期清理与治理逻辑；关键词检索、spaCy 实体、reranker 任一不可用时检索质量会悄悄降级，建议对检索能力做可观测。
+- [supermemory](https://github.com/supermemoryai/supermemory)：AI Agent 统一记忆层，LongMemEval / LoCoMo / ConvoMem 三大基准测试均第一，定位是给所有 AI 应用提供同一个可持久化的记忆后端。
+  - 与 mem0 的架构差异：mem0 偏轻量级记忆 API（向量检索 + 事实提取）；supermemory 更重，理解事实级别、时间线与矛盾消解，支持自动过期遗忘（「我明天有考试」到期自动消失，「搬到 SF」覆盖「住在 NYC」）。
+  - Memory API：RESTful 接口（`POST /v1/memory` 写入 / 检索），一次调用 \~50ms 返回静态事实 + 动态上下文，免去自建向量库、Embedding 管道与分块策略。
+  - RAG + Memory 一体化召回：用户画像 + 混合搜索，可直接作为 Agent 的 RAG 后端，不用额外维护检索链路。
+  - 部署：支持自托管（pnpm + Docker），端到端加密，数据权完全自控；也可用云服务 app.supermemory.ai。
+  - 适合：需要跨会话、跨工具共享记忆的全栈 AI 应用，以及不想自己拼向量库 + Embedding + 检索管道的开发者。
+
+### 可观测与评估
+
+- [Langfuse](https://github.com/langfuse/langfuse)：开源 LLM 应用可观测性平台，Y Combinator 孵化，被 Samsara / Twilio / 可汗学院等生产环境大规模使用，2026 年被 ClickHouse 收购，MIT 协议。
+  - 全链路追踪：基于 OpenTelemetry，Python / JS/TS SDK + 50 多框架集成（LangChain / LlamaIndex / LiteLLM 等），Agent 执行链路可视化 Trace 树，每个节点记录耗时、Token、成本、元数据。
+  - 提示词管理：中心化 Prompt 引擎，Web 界面无代码编辑、多版本控制、环境标签热部署，Playground A/B Test 对比不同模型下的 Token 消耗与输出质量。
+  - 评估与数据集：标准化测试数据集 + 批量实验运行 + 内置评估框架（LLM-as-a-Judge / 代码评估 / 人工标注），模型升级前后质量对比可视化。
+  - 自托管：Docker Compose 一键部署（Postgres + ClickHouse + Redis），数据完全自主可控；也可用 Langfuse Cloud 免费版。
+  - 对比 LangSmith：Langfuse 完全开源自托管、框架无关；LangSmith 闭源但 LangChain 深度集成。
+  - 适合：把 AI Agent 推上生产环境、需要数据主权与合规、想量化优化 Prompt 与模型版本的团队。
 
 ## TypeScript
 

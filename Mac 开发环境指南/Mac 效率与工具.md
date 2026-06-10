@@ -79,6 +79,10 @@
   - 功能亮点：公式识别、文字提取、表格转换、图像分析、问题求解、代码理解、色彩提取、语言翻译。
 - [macshot](https://github.com/sw33tLie/macshot)：原生 macOS 截图和录制工具，支持标注、自动遮蔽隐私、GIF 录制、OCR、滚动截图等能力。
   - 特点：基于 Swift + AppKit 开发，轻量且功能全面。
+- [capcap](https://github.com/nicepkg/capcap)：开源 macOS 菜单栏截图工具，331 Star，把截图、标注、打码、美化、置顶和图床分享压进同一条本地流程。
+  - 双击 Command 唤起，浮动编辑器支持箭头、矩形、椭圆、画笔、高亮、马赛克、序号和文字，标注可继续修改（移动、换颜色、改尺寸、旋转、撤销）。
+  - 支持窗口自动贴合、长截图滚动拼接、图床上传（腾讯云 COS / 七牛云 Kodo / 阿里云 OSS）、菜单栏历史快速复制。
+  - Swift + AppKit 原生开发，无 Electron 套壳、无遥测、无订阅、零第三方依赖，系统要求 macOS 14.0+。
 
 ### **窗口管理**
 
@@ -147,6 +151,7 @@
 
 ### **AI 开发工具**
 
+- [Superset](https://github.com/superset-sh/superset)：专为 AI 智能体打造的代码编辑器，让 Claude Code / Codex / Cursor / Gemini 等多 AI 编程助手同时并行干活，每个任务独立隔离互不干扰。
 - [muxy](https://github.com/muxy-app/muxy) ⭐：轻量级且内存高效的 Mac 终端，采用 SwiftUI 和 libghostty 构建
 - [terax-ai](https://github.com/crynta/terax-ai)：轻量级（7MB）终端优先的 AI 原生开发工作空间
 - [ZCode](https://zcode-ai.com/)：ZCode 将最强大的 AI Agents 与现有工具链结合，让你在熟悉的流程中完成规划、编码、评审与上线。

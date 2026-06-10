@@ -18,6 +18,11 @@ NoteBook/
 │   ├── Mac 终端配置.md        # zsh / 终端环境
 │   ├── 编程语言管理.md         # Node / Python 等版本管理（nvm、uv 等）
 │   └── Github 优秀开源项目.md  # 收藏的开源项目
+├── 后端开发/
+│   └── Node 后端/             # Node.js 后端框架选型与实战
+│       ├── Node.js 后端框架选型.md
+│       ├── Node.js 最佳实践.md
+│       └── Node.js + TypeScript 生产级工程规范.md
 └── 前端开发/
     ├── 前端生态库推荐.md       # 按领域分类的前端库清单
     └── 前端基础能力/           # 通用代码封装范式

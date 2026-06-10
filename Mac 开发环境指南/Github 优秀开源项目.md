@@ -31,6 +31,13 @@
   - 11 个章节覆盖全链路：LLM 综述、预训练微调与部署、提示学习与思维链、知识编辑、模型水印、越狱攻击、多模态、后门攻击、Agent、RAG 等。
   - 每章配有 Slides + Jupyter Notebook + README，可在 Google Colab 或本地环境直接运行，部分实验 CPU 即可跑通。
   - 适合：想系统入门大模型的学生和工程师、研究模型幻觉与 AI 安全、从零训练微调自己的模型。
+- [Agents Towards Production](https://github.com/NirDiamant/agents-towards-production)：Agent 生产级全栈教程合集，约 2 万 Star，22 个独立 Jupyter Notebook 覆盖从编排到部署的完整链路。
+  - 编排：LangGraph 状态机工作流、MCP 工具协议、FastAPI 服务化。
+  - 记忆：Redis 双记忆架构（短期 + 向量长期）、Mem0 自进化记忆、Cognee 知识图谱。
+  - 安全：LlamaFirewall 输入输出护栏、Apex 安全评估。
+  - 部署：Docker 容器化、Ollama 本地模型、AWS AgentCore 托管、RunPod 弹性 GPU。
+  - 其他：Tavily 实时搜索、LangSmith 链路追踪、Streamlit UI、A2A 多 Agent 通信、Fine-tuning 微调。
+  - 注意：非商业许可证（学习免费，商用需许可）；部分教程由赞助商支持（Redis / Mem0 / Tavily 等），质量较高但带产品推广倾向；无 CI/CD 保证，依赖版本可能过时。
 
 ## Agent 与工作流
 
@@ -86,6 +93,10 @@
 - [MiniCode](https://github.com/LiuMengxuan04/MiniCode)：借鉴 Claude Code 设计的轻量级多语言实现（TypeScript / Python / Rust），500+ Star，适合 Agent 初学者学习、二次开发或作为简历项目。
   - 核心特性：兼容 MCP & Skills、后台任务、按项目隔离的会话持久化、provider usage 上下文记账、自动压缩与大工具结果落盘替换。
   - 配套「通过 MiniCode 你可以学习到 ClaudeCode 的哪些设计」学习文档。
+- [OpenClaude](https://github.com/Gitlawb/openclaude)：Claude Code 源码泄露后社区重构的开源终端编码 Agent，19K Star，核心优势是模型不可知——支持 GPT / Gemini / DeepSeek / Ollama 等多模型后端。
+  - 背景：2026.3 Anthropic 发布 Claude Code npm 包时 source map 泄露，社区还原约 1900 个 TypeScript 文件 / 51 万行源码，催生此项目。
+  - 完整支持 MCP 协议、VS Code 扩展、终端优先工作流（文件操作 / 系统命令 / 流式输出 / 视觉能力）。
+  - 与 Claude Code 对比：功能体验相近，但不锁定模型供应商、完全开源可审计、支持本地模型隐私优先。
 
 ## RAG 与文档处理
 

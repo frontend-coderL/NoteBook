@@ -183,15 +183,21 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
   - 适合：重构、大规模编辑、项目迁移、依赖分析等需要全局上下文的场景。
 - [supabase-mcp](https://github.com/supabase-community/supabase-mcp)：将 Supabase 连接到 AI 助手，用中文问数据库问题。
 - [publora/mcp-server](https://github.com/publora/mcp-server)：通过 Claude、Cursor 等 AI 助手控制社交媒体日程，一条指令多平台发布。
+- [claude-context](https://github.com/zilliztech/claude-context)：Zilliz 出品的代码库语义搜索 MCP 服务器，让 AI 从整个代码库中找相关代码而非只看当前文件。
+  - 核心技术：BM25 + 稠向量混合搜索，AST 分析代码结构智能分块，Merkle 树增量索引。
+  - 支持 OpenAI / VoyageAI / Ollama / Gemini 嵌入模型，Milvus / Zilliz Cloud 向量数据库，14+ 编程语言。
 
 ### 记忆系统
 
 跨 AI 编码工具复用的记忆系统，让 Agent 跨 session 保留项目知识。
 
-- [supermemory](https://github.com/supermemoryai/supermemory) ⭐：AI 时代的记忆与上下文引擎，定位大模型的记忆层，三大主流 benchmark 全部第一，超越 Mem0、Zep。
-  - 核心机制：从对话自动抽取事实、追踪时间线、矛盾消解、自动过期遗忘（"我明天有考试"到期自动消失；"搬到 SF"覆盖"住在 NYC"）。
+- [supermemory](https://github.com/supermemoryai/supermemory) ⭐：AI 时代的记忆与上下文引擎，定位大模型的统一记忆层，LongMemEval / LoCoMo / ConvoMem 三大基准测试均第一，超越 Mem0、Zep。
+  - 核心机制：从对话自动抽取事实、追踪时间线、矛盾消解、自动过期遗忘（「我明天有考试」到期自动消失；「搬到 SF」覆盖「住在 NYC」）。
   - 与传统记忆库差异：Mem0 / Zep 仍是向量检索存文档片段；supermemory 理解事实级别，能识别信息优先级与时效性。
   - 用户画像 + 混合搜索：一次调用 \~50ms 返回静态事实 + 动态上下文，RAG 与 Memory 一体化召回。
+  - 数据摄取生态：Chrome 插件（一键保存 Twitter / 网页 / PDF / 视频）、Raycast 扩展、Google Drive / Notion 连接器、图片 OCR + 视频转录。
+  - 跨平台集成：插件市场支持 Claude Code / OpenClaw / OpenCode / Hermes；MCP 服务器接入 Claude Desktop / Cursor，共享同一记忆库。
+  - Canvas 知识库：Markdown 编辑器 + AI 辅助整理，自然语言提问检索（「帮我总结上周保存的 AI 论文核心观点」）。
 - [claude-mem](https://github.com/thedotmack/claude-mem) ⭐：给 Claude Code 加跨 session 持久记忆，自动捕捉每次会话中的工具调用与文件修改、生成语义摘要，下次开新窗口时把相关上下文重新注入。
   - 适合：长期维护单个大项目的人，隔几天回来 Claude 不再完全失忆。
   - 不适合：每天换新项目、做一次性脚本的人——加了反而是负担。
@@ -233,10 +239,12 @@ OpenAI 推出的编码代理，CLI、桌面 App、IDE 插件、云端 Web 共用
 - [CodeGraph](https://github.com/colbymchenry/codegraph)：AI 编码工具的缓存层，把代码库建成可查询的知识图谱，降低 Token 消耗。
   - 懒加载索引、熵值监控、MCP 异步支持。
   - 适合：大型代码库维护者、AI 编码工具重度用户、技术债管理。
-- [Serena](https://github.com/oraios/serena) ⭐：给 AI Agent 提供 IDE 级语义能力的 MCP 工具包，符号级代码检索、编辑、重构与调试，支持 40+ 语言。
-  - 核心能力：符号查找与引用、跨文件重命名、符号体替换、文件大纲、诊断检查、记忆管理。
-  - 双后端：LSP（免费，40+ 语言）/ JetBrains 插件（付费，更强重构与调试能力）。
-  - 安装：`uv tool install -p 3.13 serena-agent` → `serena init`，支持 Claude Code / Codex / Cursor / VS Code 等。
+- [Serena](https://github.com/oraios/serena) ⭐：通过 MCP 把 IDE 的语义分析能力暴露给 AI 编程工具，让 Claude Code / Cursor / Copilot 真正理解代码结构而不只是文本搜索。MIT。
+  - 双后端：LSP（免费，40+ 语言，基于 pylsp / jdtls / rust-analyzer 等官方 LSP）；JetBrains 插件（付费，支持 Move / Inline / Propagate Deletions / 调试器控制）。
+  - 语义检索：符号查找与引用（非字符串搜索）、查声明、查实现、文件大纲、LSP 诊断。
+  - 符号级编辑：`replace_symbol_body`（只替换函数体而非重写整个文件）、`insert_after_symbol` / `insert_before_symbol`、`safe_delete`（先验证无残留引用再删），大幅降低 token 消耗和出错率。
+  - 内置轻量项目级 Memory 系统，五层 YAML 配置 + Modes 场景化开关。
+  - 注意：工具列表很长，建议配置 Modes 禁用无关工具，否则加载所有工具描述反而增加 token 消耗。
   - 适合：大型代码库中让 Agent 像资深开发者一样精准导航和编辑代码。
 - [code-review-graph](https://github.com/tirth8205/code-review-graph)：基于 Tree-sitter 的增量式代码知识图谱，6.8 倍到 49 倍 Token 削减。
   - 注意：需要 Python 3.10+；首次建图时间较长；Claude Code 用户安装后需重启生效；不是所有语言都完美支持。
